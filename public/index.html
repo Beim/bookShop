@@ -10,9 +10,9 @@
                 // console.log('hello')
                 let xhr = new XMLHttpRequest()
                 xhr.responseType = 'json'
-                xhr.open('GET', 'http://beim.site/apiv0/book')
+                xhr.open('GET', 'http://beim.site:3333/apiv0/book')
                 xhr.onload = function (e) {
-                    console.log(e.response)
+                    console.log(e.target.response)
                 }
                 xhr.send()
             }
