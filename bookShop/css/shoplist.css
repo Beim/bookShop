@@ -1,0 +1,67 @@
+.book_list{
+	max-height:10000px;
+	width:900px;
+/*	background-color: #ccc;*/
+	margin-left: 20%;
+	position: relative;
+	padding:20px 10px 20px 10px;
+}
+.list{
+	display:none;
+}
+.book_detail{
+	display:inline-block;
+/*	background-color: purple;*/
+	padding:20px;
+	height:199px;
+	width:880px;
+	border-bottom: 1px solid red;
+	position:relative;
+}
+.bookImg{
+	position: absolute;
+	border:1px dotted black;
+}
+.bookname{
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 20px;
+}
+.bookwriter{
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 60px;
+}
+.bookprice{
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 100px;
+}
+.bookcar{
+	width:80px;
+	height:35px;
+	text-align: right;
+	position: absolute;
+	margin-left: 600px;
+	margin-top: 20px;
+	background:url(../img/icon/bookcar.jpg.png) no-repeat ;
+	background-color: orange;
+}
+.bookcollect{
+	width:80px;
+	height:35px;
+	text-align: right;
+	position: absolute;
+	margin-left: 600px;
+	margin-top: 70px;
+	background:url(../img/icon/bookcollect.jpg.png) no-repeat;
+	background-color: #ccc;
+}
+.btn_page{
+	margin-left: 20%;
+	width:900px;
+	text-align: center;
+}
+.btn-success{
+	margin-left: 5px;
+}
