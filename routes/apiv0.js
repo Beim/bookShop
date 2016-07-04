@@ -3,7 +3,8 @@ var router = require('koa-router')()
 const db = require('../mongo.js')
 
 router.get('/', function *(next){
-	this.body = 'Hello World@api'
+	// this.body = 'Hello World@api'
+    this.redirect('http://htmlpreview.github.io/?https://github.com/Beim/save/blob/master/html/API_v0.html')
 })
 
 
