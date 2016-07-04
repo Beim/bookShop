@@ -36,6 +36,7 @@ app.use(json())
 
 app.use(function * (next) {
   // var start = new Date()
+  this.set('Access-Control-Allow-Origin', '*')
   yield next
   // var ms = new Date() - start
   // console.log('%s%s - %s', this.method, this.url, ms)
