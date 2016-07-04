@@ -22,29 +22,46 @@ router.get('/:name', function *(next) {
             condition: '9',
             amount: '100',
             image: 'tudou.png',
-            bookId: 1
+            bookId: '1'
         }
         let response = yield db.insert['book'](bookData)
         this.body = 'Hello World@ connected : ' + response    
     }
     else if (this.params.name === 'user') {
+        let query = this.query
         let limit = {}
+        for (let i in query) {
+            limit[i] = new RegExp(query[i], 'gi')
+        }
         let skip = {
             _id: 0,
             __v: 0
         }
         let response = yield db.search['user'](limit, skip)
-        this.body = response   
+        let success = response.length > 0
+        this.body = {
+            success: success,
+            response: response
+        }
+        
     }
     else if (this.params.name === 'book') {
-        let limit = {
+        let query = this.query
+        let limit = {}
+        for (let i in query) {
+            limit[i] = new RegExp(query[i], 'gi')
         }
         let skip = {
             _id: 0,
             __v: 0
         }
         let response = yield db.search['book'](limit, skip)
-        this.body = response
+        let success = response.length > 0
+        this.body = {
+            success: success,
+            response: response
+        }
+        
     }
     
 })

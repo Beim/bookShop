@@ -23,11 +23,11 @@ var bookSchema = new mongoose.Schema({
 	condition: String,
 	amount: String,
 	image: String,
-	bookId: Number
+	bookId: String
 })
 
 var bookModel = mongoose.model('books', bookSchema)
-
+ 
 exports.insert = {
 	user: (data) => {
 		return new Promise((res, rej) => {
