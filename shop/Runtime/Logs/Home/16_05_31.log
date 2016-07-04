@@ -1,0 +1,9 @@
+[ 2016-05-31T13:52:29+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/index.php?s=/Home/Index/%27%27.xml
+ERR: 非法操作:''
+
+[ 2016-05-31T13:57:44+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/index.php?s=/Home/Index/login.xml
+ERR: 非法操作:login.xml
+
+[ 2016-05-31T14:52:10+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&&c=Index&&a=register%22
+ERR: 非法操作:register"
+

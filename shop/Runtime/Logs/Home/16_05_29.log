@@ -1,0 +1,105 @@
+[ 2016-05-29T11:09:47+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:12:06+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:12:07+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:15:24+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=controller
+ERR: 无法加载控制器:Controller
+
+[ 2016-05-29T11:15:36+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:20:56+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:21:37+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:21:38+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:22:45+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:22:48+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:22:49+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=controller
+ERR: 无法加载控制器:Controller
+
+[ 2016-05-29T11:27:06+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:32:43+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:32:48+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:33:06+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:33:07+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:33:08+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:33:58+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:33:59+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:34:00+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T11:45:08+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Admin&c=Manager&a=login
+ERR: 无法加载控制器:Manager
+
+[ 2016-05-29T19:10:04+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:01+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:02+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:26+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:27+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:28+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:33+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:39+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:13:44+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23432
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:17:57+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:18:55+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=23
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:19:58+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=d
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:20:26+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=t
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
+[ 2016-05-29T19:20:53+08:00 ] 127.0.0.1 /phpmyadmin/smallTest/shop/?g=Home&c=Goods&a=showlist&search=etre
+ERR: Unable to load template file 'P/Tpl/dispatch_jump.tpl'
+
