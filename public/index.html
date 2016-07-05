@@ -10,12 +10,25 @@
                 let data = {
                     type: 'post',
                     data: {
-                        bookname: 'ajaxBookname1',
-                        bookId: '123',
-                        account: '1'
+                      //   "bookname": "工数",
+                      // "writer": "writer",
+                      // "publishTime": "20160704",
+                      // "publisher": "HIT",
+                      // "condition": "9",
+                      // "amount": "100",
+                      // "image": "tudou.png",
+                      // "bookId": "1"
+                        bookname: 'math',
+                        writer: 'writer',
+                        publishTime: '20160704',
+                        publisher: 'HIT',
+                        condition: '9',
+                        amount: '100',
+                        image: 'tudou.png',
+                        bookId: '111'
                     }
                 }
-                let url = 'http://localhost:3333/apiv0/book'
+                let url = 'http://beim.site:3333/apiv0/book'
                 let xhr = new XMLHttpRequest()
                 xhr.responseType = 'json'
                 xhr.open('POST', url)

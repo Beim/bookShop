@@ -9,20 +9,22 @@ router.get('/', function *(next){
 router.get('/:name', function *(next) {
     if (this.params.name === 'test') {
         let userData = {
-            username: 'test',
-            password: 'test'
+            username: 'testmyname',
+            password: 'testmyname'
         }
         let bookData = {
-            bookname: '工数',
+            bookname: 'mybook',
             writer: 'writer',
             publishTime: '20160704',
             publisher: 'HIT',
             condition: '9',
             amount: '100',
             image: 'tudou.png',
-            bookId: '1'
+            bookId: '1979'
         }
-        let response = yield db.insert['book'](bookData)
+        let response = []
+         response[0] = yield db.insert['book'](bookData)
+        response[1] = yield db.insert['user'](userData)
         this.body = 'Hello World@ connected : ' + response
     }
     else if (this.params.name === 'user') {
