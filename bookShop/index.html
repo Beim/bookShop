@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
 <body>
+	<!--首页-->
+<div id="indexPage">
 	<!--上部-->
 	<header>
 		<div class="topBar">
@@ -16,10 +18,15 @@
 					<img src="img/icon/shoucang.jpg" class="shoucang" height="14" width="15">
 					<a href="#">收藏本网站</a>
 				</div>
-				<div class="right">
+				<div class="right right1">
 					<span>欢迎来到XX网!</span>
 					<span><a href="#" data-toggle="modal" data-target="#loginModal">[登录]</a></span>
 					<span><a href="#" data-toggle="modal" data-target="#registerModal">[免费注册]</a></span>
+				</div>
+				<div class="right right2">
+					<span>欢迎来到XX网!</span>
+					<span><a href="#">[用户名]</a></span>
+					<span><a href="#">[退出]</a></span>
 				</div>
 				<!--登录弹出框-->
 					<div id="loginModal" class="modal fade" tabindex="-5" role="dialog">
@@ -34,16 +41,15 @@
 									</h4>
 								</div>
 								<div class="modal-body login_body">
-									<form id="login_input" class="login_input" action="?g=Home&&c=Index&&a=login" method="post" >
+									<form id="login_input" class="login_input">
 										<label for="username">
 											用户名
 										</label><br>
-										<input type="text" id="login_username" placeholder="请输入用户名/账号/手机号" name="username"><br>
+										<input type="text" name="login_username" id="login_username" placeholder="请输入用户名/账号/手机号" name="username"><br>
 										<label for="password">
 											密码
 										</label><br>
-										<input type="password" id="login_password" placeholder="请输入密码" name="password">
-										<input type="text" id="getURL" value="" name="url" class="login_btn" >
+										<input type="password" id="login_password" name="login_password" placeholder="请输入密码" name="password">
 										<a href="#">忘记密码?</a>
 										<a href="#" data-dismiss="modal">没有账号?去注册！</a>
 										<button type="submit" id="login_btn" class="login_btn"></button>
@@ -53,11 +59,12 @@
 									<button type="button" class="btn btn-default"data-dismiss="modal">
 										关闭
 									</button>
-									<button type="submit" class="btn btn-primary">确定</button>
+									<button type="submit" class="btn btn-primary" onClick='login()' >确定</button>
 								</div>
 							</div>
 						</div>
 					</div>
+
 				<!--注册弹出框-->
 				<div id="registerModal" class="modal fade " tabindex="-5" role="dialog">
 					<div class="modal-dialog">
@@ -69,13 +76,13 @@
 								<h4 class="modal-title" >注册用户</h4>
 							</div>
 							<div class="modal-body login_body">
-								<form id="register_input" class="register_input login_input" action="?g=Home&&c=Index&&a=register" method="post">
+								<form id="register_input" name="register_input" class="register_input login_input">
 									<label>填写用户名</label><br>
-									<input type="text" id="register_username" placeholder="请填写您要使用的用户名" name="username"><br>
+									<input type="text" id="register_username" placeholder="请填写您要使用的用户名" name="register_username"><br>
 									<label>填写密码</label><br>
-									<input type="password" id="register_password1" placeholder="请填写您的密码" name = "password"><br>
+									<input type="password" id="register_password1" name="register_password1" placeholder="请填写您的密码" name = "password"><br>
 									<label>确认密码</label><br>
-									<input type="password" id="register_password2" placeholder="请再次填写您的密码来确认">
+									<input type="password" id="register_password2" name="register_password2" placeholder="请再次填写您的密码来确认">
 									<a href="#" data-dismiss="modal">已有账号? 去登陆！</a>
 									<input type="submit" id="register_btn" class="login_btn">
 								</form>
@@ -99,14 +106,14 @@
 					<div class="midBar_logo">
 						<img src="img/icon/logo.png" class="img-circle logo" height="75" width="75">
 					</div>
-					<form class="midBar_serch search" action="?g=Home&c=Index&a=search" method="post">
+					<form class="midBar_serch search">
 						<input type="text" class="searchText" placeholder="请输入要查询的内容" name="key" >
 						<input class="btn-info btn searchBtn" type="submit" value="搜索"/>
 					</form>
 					<div class="midBar_shopcar">
 						<div class="shopcar">
 							<img src="img/icon/shopcar.png" class="img-rounded " height="46" width="50">
-							<a href="#" class="btn btn-warning ">我的购物车</a>
+							<a href="shopcar.html" class="btn btn-warning ">我的购物车</a>
 						</div>
 					</div>
 				</div>	
@@ -440,41 +447,15 @@
 			</div>
 		</div>
 	</footer>
+</div>
+
+	<!--购物车页面-->
 	
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.validate-1.13.1.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
 	<script type="text/javascript">
-	//验证登录账号密码
-	// $(document).ready(function(){
-	// 	$("#login_input").validata({
-	// 		rules:{
-	// 			username:{
-	// 				required:true,
-	// 				minlength:4,
-	// 				maxlength:10
-	// 			}
-	// 			password:{
-	// 				required:true,
-	// 				minlength:6,
-	// 				maxlength:16,
-	// 			}
-	// 		}
-	// 		massage:{
-	// 			username:{
-	// 				required:"必须要填写用户名"
-	// 				minlength:"用户名长度要大于4位"
-	// 				maxlength:"用户名长度要小于10位"
-	// 			}
-	// 			password:{
-	// 				required:"必须要填写密码"
-	// 				minlength:"密码长度必须大于6位"
-	// 				maxlength:"密码长度必须小于16位"
-	// 			}
-	// 		}
-	// 	})
-	// });
-
 	//数学菜单
 	$("#shopMath").hover(function() {
 		/* Stuff to do when the mouse enters the element */
@@ -519,13 +500,33 @@
 		/* Stuff to do when the mouse leaves the element */
 		 $("#showOther").css("display","none");
 	});
+	//登录验证
+	var login = function(){
+		var username_input =  $('#login_username').val();
+		var password_input = $('#login_password').val();
+		if (username_input>4 && password_input>6){
+		let data = {
+		username:username_input,
+		password:password_input
+		}
+		let url='http://192.168.191.5:8080/bookShop/userValidate'
+		let login_message=new XMLHttpRequest()
+		login_message.responseType='json'
+		login_message.open('post',url)
+		login_message.setRequestHeader('Content-Type','application/x-javascript;charset=UTF-8')
+		login_message.onload=(e)=>{
+			let response=e.target.response
+			console.log(response[0])
+		}
+		login_message.send(JSON.stringify(data))
+		}
+		else{
+			alert('请输入正确格式的账号密码');
+		}
+	}
 </script>
+
 
 </body>
 </html>
-<!--
-{$smarty.session.name}用户名（可判断其是否为空来判断有无登录）
-{$smarty.session.id}未决定
-{$fail}登录失败时传出的参数
-{$password}密码，可选用
--->
+

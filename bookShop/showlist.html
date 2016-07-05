@@ -2,24 +2,29 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/header.css">
-	<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/shoplist.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/shoplist.css">
 </head>
 	<body>
 		<header>
-			<div class="topBar">
-				<div class="center">
-					<div class="left">
-						<img src="{$smarty.const.IMG_URL}/icon/shoucang.jpg" class="shoucang" height="14" width="15">
-						<a href="#">收藏本网站</a>
-					</div>
-					<div class="right">
-						<span>欢迎来到XX网!</span>
-						<span><a href="#" data-toggle="modal" data-target="#loginModal">[{$smarty.session.name}登录]</a></span>
-						<span><a href="#" data-toggle="modal" data-target="#registerModal">[免费注册]</a></span>
-					</div>
-					<!--登录弹出框-->
+		<div class="topBar">
+			<div class="center">
+				<div class="left">
+					<img src="img/icon/shoucang.jpg" class="shoucang" height="14" width="15">
+					<a href="#">收藏本网站</a>
+				</div>
+				<div class="right right1">
+					<span>欢迎来到XX网!</span>
+					<span><a href="#" data-toggle="modal" data-target="#loginModal">[登录]</a></span>
+					<span><a href="#" data-toggle="modal" data-target="#registerModal">[免费注册]</a></span>
+				</div>
+				<div class="right right2">
+					<span>欢迎来到XX网!</span>
+					<span><a href="#">[用户名]</a></span>
+					<span><a href="#">[退出]</a></span>
+				</div>
+				<!--登录弹出框-->
 					<div id="loginModal" class="modal fade" tabindex="-5" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content login">
@@ -32,16 +37,15 @@
 									</h4>
 								</div>
 								<div class="modal-body login_body">
-									<form id="login_input" class="login_input" action="?g=Home&&c=Index&&a=login" method="post" >
+									<form id="login_input" class="login_input">
 										<label for="username">
 											用户名
 										</label><br>
-										<input type="text" id="login_username" placeholder="请输入用户名/账号/手机号" name="username"><br>
+										<input type="text" name="login_username" id="login_username" placeholder="请输入用户名/账号/手机号" name="username"><br>
 										<label for="password">
 											密码
 										</label><br>
-										<input type="password" id="login_password" placeholder="请输入密码" name="password">
-										<input type="text" id="getURL" value="" name="url" class="login_btn" >
+										<input type="password" id="login_password" name="login_password" placeholder="请输入密码" name="password">
 										<a href="#">忘记密码?</a>
 										<a href="#" data-dismiss="modal">没有账号?去注册！</a>
 										<button type="submit" id="login_btn" class="login_btn"></button>
@@ -51,72 +55,70 @@
 									<button type="button" class="btn btn-default"data-dismiss="modal">
 										关闭
 									</button>
-									<button type="submit" class="btn btn-primary" onclick="submit()">确定</button>
+									<button type="submit" class="btn btn-primary">确定</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!--注册弹出框-->
-					<div id="registerModal" class="modal fade " tabindex="-5" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content register">
-								<div class="modal-header login_head">
-									<button type="button" class="close" data-dismiss="modal">
-										&times;
-									</button>
-									<h4 class="modal-title" >注册用户</h4>
-								</div>
-								<div class="modal-body login_body">
-									<form id="register_input" class="register_input login_input">
-										<label>填写用户名</label><br>
-										<input type="text" id="register_username" placeholder="请填写您要使用的用户名"><br>
-										<label>填写密码</label><br>
-										<input type="password" id="register_password1" placeholder="请填写您的密码"><br>
-										<label>确认密码</label><br>
-										<input type="password" id="register_password2" placeholder="请再次填写您的密码来确认">
-										<a href="#" data-dismiss="modal">已有账号? 去登陆！</a>
-									</form>
-								</div>
-								<div class="modal-footer login_foot">
-									<button type="button" class="btn btn-default" data-dismiss="modal">
-										取消
-									</button>
-									<button type="button" class="btn btn-primary">
-										注册
-									</button>
-								</div>
+					
+				<!--注册弹出框-->
+				<div id="registerModal" class="modal fade " tabindex="-5" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content register">
+							<div class="modal-header login_head">
+								<button type="button" class="close" data-dismiss="modal">
+									&times;
+								</button>
+								<h4 class="modal-title" >注册用户</h4>
+							</div>
+							<div class="modal-body login_body">
+								<form id="register_input" name="register_input" class="register_input login_input">
+									<label>填写用户名</label><br>
+									<input type="text" id="register_username" placeholder="请填写您要使用的用户名" name="register_username"><br>
+									<label>填写密码</label><br>
+									<input type="password" id="register_password1" name="register_password1" placeholder="请填写您的密码" name = "password"><br>
+									<label>确认密码</label><br>
+									<input type="password" id="register_password2" name="register_password2" placeholder="请再次填写您的密码来确认">
+									<a href="#" data-dismiss="modal">已有账号? 去登陆！</a>
+									<input type="submit" id="register_btn" class="login_btn">
+								</form>
+							</div>
+							<div class="modal-footer login_foot">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+								<button type="button" class="btn btn-primary" >
+									注册
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="midBar">
-				<div class="center">
-					<div class="middle">
-						<div class="midBar_logo">
-							<img src="{$smarty.const.IMG_URL}/icon/logo.png" class="img-circle logo" height="75" width="75">
+		</div>
+		<div class="midBar">
+			<div class="center">
+				<div class="middle">
+					<div class="midBar_logo">
+						<img src="img/icon/logo.png" class="img-circle logo" height="75" width="75">
+					</div>
+					<form class="midBar_serch search" >
+						<input type="text" class="searchText" placeholder="请输入要查询的内容" name="key" >
+						<input class="btn-info btn searchBtn" type="submit" value="搜索"/>
+					</form>
+					<div class="midBar_shopcar">
+						<div class="shopcar">
+							<img src="img/icon/shopcar.png" class="img-rounded " height="46" width="50">
+							<a href="#" class="btn btn-warning ">我的购物车</a>
 						</div>
-						<form class="midBar_serch search" action="?g=Home&c=Index&a=search" method="post">
-							<input type="text" class="searchText" placeholder="请输入要查询的内容" name="key" >
-							<input class="btn-info btn searchBtn" type="submit" value="搜索"/>
-						</form>
-						<div class="midBar_shopcar">
-							<div class="shopcar">
-								<img src="{$smarty.const.IMG_URL}/icon/shopcar.png" class="img-rounded " height="46" width="50">
-								<a href="#" class="btn btn-warning ">我的购物车</a>
-							</div>
-						</div>
-					</div>	
-				</div>
+					</div>
+				</div>	
 			</div>
-		</header>
+		</div>
+		
+	</header>
 		<content>
-			<div class="book_list" id="book_list">
-				
-			</div>
-			<div class="btn_page" id="btn_page">
-
-			</div>
+			
 		</content>
 
 	<script type="text/javascript" src="{$smarty.const.JS_URL}/jquery-1.11.1.min.js"></script>
@@ -151,7 +153,7 @@
 			var price = book[i].price;
 			var $detail = "<div class='book_detail' id="+detail_id+"></div> "
 			$("#list"+(j/2)).append($detail);
-			var $bookImg = "<img class='bookImg' src={$smarty.const.IMG_URL}"+img+" height='150' width='97.5'>";
+			var $bookImg = "<img class='bookImg' src=img"+img+" height='150' width='97.5'>";
 			$("#detail"+i).append($bookImg);
 			var $bookname = "<div class='bookname'>书名："+name+"</div> ";
 			$("#detail"+i).append($bookname);

@@ -31,6 +31,13 @@ body{
 }
 .right{
 	float:right;
+	
+}
+.right1{
+	margin-right: 50px;
+}
+.right2{
+	margin-right:50px;
 }
 .midBar{
 	height: 130px;
