@@ -37,6 +37,7 @@ app.use(function * (next) {
   // var start = new Date()
 this.set('Access-Control-Allow-Origin', '*')
 this.set('Access-Control-Allow-Methods', 'GET, POST')
+this.set('Access-Control-Request-Methods', 'GET, POST')
 this.set('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
 this.set('Access-Control-Allow-Credentials', true)
 yield next
