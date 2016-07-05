@@ -1,10 +1,13 @@
 package model;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 
 import net.sf.json.JSONObject;
 
+=======
+>>>>>>> f9150fbd6846b33ccb35d2ce00fb7bb04d99ecf1
 public class User {
 	private String userName;
 	private String password;
@@ -12,6 +15,7 @@ public class User {
 		userName = "";
 		password = "";
 	}
+<<<<<<< HEAD
 	public static String addUser(User user)
 	{
 		Map data = new HashMap();
@@ -25,6 +29,8 @@ public class User {
 				json.toString());
 		return jsonMessage;
 	}
+=======
+>>>>>>> f9150fbd6846b33ccb35d2ce00fb7bb04d99ecf1
 	public String getUserName() {
 		return userName;
 	}

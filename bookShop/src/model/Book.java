@@ -1,5 +1,6 @@
 package model;
 
+<<<<<<< HEAD
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -7,6 +8,8 @@ import java.util.Map;
 
 import net.sf.json.JSONObject;
 
+=======
+>>>>>>> f9150fbd6846b33ccb35d2ce00fb7bb04d99ecf1
 public class Book {
 	private String bookName;
 	private String writer;
@@ -17,6 +20,7 @@ public class Book {
 	/**
 	 * 
 	 */
+<<<<<<< HEAD
 	public Book(){
 		bookName	="";
 		writer		="";
@@ -43,6 +47,9 @@ public class Book {
 	
 	private String bookId;
 	
+=======
+	private String bookId;
+>>>>>>> f9150fbd6846b33ccb35d2ce00fb7bb04d99ecf1
 	public String getBookName() {
 		return bookName;
 	}
