@@ -27,7 +27,7 @@ var bookSchema = new mongoose.Schema({
 })
 
 var bookModel = mongoose.model('books', bookSchema)
- 
+
 exports.insert = {
 	user: (data) => {
 		return new Promise((res, rej) => {
@@ -69,7 +69,7 @@ exports.search = {
 					res(doc)
 				}
 			})
-			
+
 		})
 	},
 	book: (limit, skip = null, idx = null) => {
@@ -83,9 +83,9 @@ exports.search = {
 					res(doc)
 				}
 			})
-			
+
 		})
-	} 
+	}
 }
 
 // var testSchema = new mongoose.Schema({
