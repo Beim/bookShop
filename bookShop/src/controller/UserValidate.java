@@ -53,14 +53,14 @@ public class UserValidate extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		User user = new User();
-		//mail.put(type, )
-		user.setUserName("hebly723");
-		user.setPassword("comming");
-		String jsonMessage = User.addUser(user);
-		//String jsonMessage = HttpRequest.sendPost("http://localhost:3333/apiv0/user",
-			//	json.toString());
-		System.out.println(jsonMessage);
+//		User user = new User();
+//		//mail.put(type, )
+//		user.setUserName("hebly723");
+//		user.setPassword("comming");
+//		String jsonMessage = User.addUser(user);
+//		//String jsonMessage = HttpRequest.sendPost("http://localhost:3333/apiv0/user",
+//			//	json.toString());
+//		System.out.println(jsonMessage);
 //
 //		String mail="";
 //		 try {  
@@ -122,6 +122,19 @@ public class UserValidate extends HttpServlet {
 //		out.println("</HTML>");
 //		out.flush();
 //		out.close();
+		
+		request.getSession().removeAttribute("username");
+		request.getSession().removeAttribute("password");
+		request.setAttribute("loginFlag", "0");
+		
+		Map mail = new HashMap();
+		
+		mail.put("success", "true");
+		
+		JSONArray jsonArray = JSONArray.fromObject(mail);
+		
+		response.getWriter().println(jsonArray);
+		
 	}
 
 	/**
@@ -160,8 +173,9 @@ public class UserValidate extends HttpServlet {
 		String username = jsonMail.getString("username");
 		
 		String password = jsonMail.getString("password");
-		System.out.println(username);
-		System.out.println(password);
+		System.out.println("登录");
+		System.out.println(user.getUserName());
+		System.out.println(user.getPassword());
 		
 		String success = "false";
 		//'http://beim.site:3333/apiv0/user?' + queryStr
@@ -190,7 +204,12 @@ public class UserValidate extends HttpServlet {
 		Map params = new HashMap();
 		if (success.equals("true"))
 			//out.println("<br/>"+"Congratulation for login successfully!");
-			params.put("success", "true");
+			{
+				params.put("success", "true");
+				request.getSession().setAttribute("username", user.getUserName());
+				request.getSession().setAttribute("password", user.getPassword());
+				request.getSession().setAttribute("loginFlag", "1");
+			}
 		else
 			//out.println("<br/>"+"unfortunately you are lose.");
 			params.put("success", "false");
