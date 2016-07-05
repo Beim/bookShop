@@ -38,7 +38,7 @@ app.use(json())
 app.use(function*(next) {
     let header = JSON.stringify(this.header)
     let ws = fs.createWriteStream('./server.log', {
-        flag: 'w+'
+        flags: 'a+'
     })
     let str = `
         date: ${new Date()}
