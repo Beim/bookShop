@@ -2,21 +2,21 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/header.css">
-	<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/shoplist.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/shoplist.css">
 </head>
 	<body>
 		<header>
 			<div class="topBar">
 				<div class="center">
 					<div class="left">
-						<img src="{$smarty.const.IMG_URL}/icon/shoucang.jpg" class="shoucang" height="14" width="15">
+						<img src="img/icon/shoucang.jpg" class="shoucang" height="14" width="15">
 						<a href="#">收藏本网站</a>
 					</div>
 					<div class="right">
 						<span>欢迎来到XX网!</span>
-						<span><a href="#" data-toggle="modal" data-target="#loginModal">[{$smarty.session.name}登录]</a></span>
+						<span><a href="#" data-toggle="modal" data-target="#loginModal">[登录]</a></span>
 						<span><a href="#" data-toggle="modal" data-target="#registerModal">[免费注册]</a></span>
 					</div>
 					<!--登录弹出框-->
@@ -94,7 +94,7 @@
 				<div class="center">
 					<div class="middle">
 						<div class="midBar_logo">
-							<img src="{$smarty.const.IMG_URL}/icon/logo.png" class="img-circle logo" height="75" width="75">
+							<img src="img/icon/logo.png" class="img-circle logo" height="75" width="75">
 						</div>
 						<form class="midBar_serch search" action="?g=Home&c=Index&a=search" method="post">
 							<input type="text" class="searchText" placeholder="请输入要查询的内容" name="key" >
@@ -102,7 +102,7 @@
 						</form>
 						<div class="midBar_shopcar">
 							<div class="shopcar">
-								<img src="{$smarty.const.IMG_URL}/icon/shopcar.png" class="img-rounded " height="46" width="50">
+								<img src="img/icon/shopcar.png" class="img-rounded " height="46" width="50">
 								<a href="#" class="btn btn-warning ">我的购物车</a>
 							</div>
 						</div>
@@ -119,10 +119,10 @@
 			</div>
 		</content>
 
-	<script type="text/javascript" src="{$smarty.const.JS_URL}/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="{$smarty.const.JS_URL}/bootstrap.min.js"></script>
-	<script type="text/javascript" src="{$smarty.const.JS_URL}/jquery.validate-1.13.1.js"></script>	
-	<script type="text/javascript" src="{$smarty.const.JS_URL}/bookAdd.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate-1.13.1.js"></script>	
+	<script type="text/javascript" src="js/bookAdd.js"></script>
 	<script type="text/javascript">
 	var submit = function(){
 		$("#login_btn").click();
@@ -130,11 +130,11 @@
 		var nowURL = window.location.href;
 		$("#getURL").attr('value',nowURL);
 
-	var book = {$js_arr};
-	var bookNum = {$count};
-	var listNum = Math.ceil({$count}/2);
+	var book ;//= {$js_arr};
+	var bookNum ;//= {$count};
+	var listNum;// = Math.ceil({$count}/2);
 	for(var j=0;j<=listNum;j=j+2){
-		var book = {$js_arr};
+		var book;//{$js_arr};
 		var list_id= "list"+(j/2);
 		var $list = "<div class='list' id="+list_id+"></div>";
 		$("#book_list").append($list);
@@ -151,7 +151,7 @@
 			var price = book[i].price;
 			var $detail = "<div class='book_detail' id="+detail_id+"></div> "
 			$("#list"+(j/2)).append($detail);
-			var $bookImg = "<img class='bookImg' src={$smarty.const.IMG_URL}"+img+" height='150' width='97.5'>";
+			var $bookImg = "<img class='bookImg' src=img"+img+" height='150' width='97.5'>";
 			$("#detail"+i).append($bookImg);
 			var $bookname = "<div class='bookname'>书名："+name+"</div> ";
 			$("#detail"+i).append($bookname);

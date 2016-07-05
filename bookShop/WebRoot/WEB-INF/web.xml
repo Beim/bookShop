@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+   version="2.4">  
+	
+	<servlet>
+		<servlet-name>AJsp</servlet-name>
+		<jsp-file>/AJsp.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AServlet</servlet-name>
+		<servlet-class>com.web.AServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>userValidate</servlet-name>
+    <servlet-class>controller.UserValidate</servlet-class>
+  </servlet>
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>CorsFilter</filter-class>
+  </filter>
+
+
+
+	<servlet-mapping>
+		<servlet-name>AJsp</servlet-name>
+		<url-pattern>/AJsp.jsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AServlet</servlet-name>
+		<url-pattern>/servlet/com.web.AServlet</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>userValidate</servlet-name>
+    <url-pattern>/userValidate</url-pattern>
+  </servlet-mapping>
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>/AJsp.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
