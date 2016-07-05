@@ -8,24 +8,25 @@ router.get('/', function *(next){
 
 router.get('/:name', function *(next) {
     if (this.params.name === 'test') {
-        let userData = {
-            username: 'testmyname',
-            password: 'testmyname'
-        }
-        let bookData = {
-            bookname: 'mybook',
-            writer: 'writer',
-            publishTime: '20160704',
-            publisher: 'HIT',
-            condition: '9',
-            amount: '100',
-            image: 'tudou.png',
-            bookId: '1979'
-        }
-        let response = []
-         response[0] = yield db.insert['book'](bookData)
-        response[1] = yield db.insert['user'](userData)
-        this.body = 'Hello World@ connected : ' + response
+        // let userData = {
+        //     username: 'testmyname',
+        //     password: 'testmyname'
+        // }
+        // let bookData = {
+        //     bookname: 'mybook',
+        //     writer: 'writer',
+        //     publishTime: '20160704',
+        //     publisher: 'HIT',
+        //     condition: '9',
+        //     amount: '100',
+        //     image: 'tudou.png',
+        //     bookId: '1979'
+        // }
+        // let response = []
+        //  response[0] = yield db.insert['book'](bookData)
+        // response[1] = yield db.insert['user'](userData)
+        // this.body = 'Hello World@ connected : ' + response
+        
     }
     else if (this.params.name === 'user') {
         let query = this.query
@@ -154,7 +155,18 @@ router.post('/:name', function *(next) {
             }
         }
         else if (body.type === 'put' || body.type === 'PUT') {
-
+            let response = yield db.update['book'](body.data)
+            if (response) {
+                this.body = {
+                    success: true,
+                    data: response
+                }
+            }
+            else {
+                this.body = {
+                    success: false
+                }
+            }
         }
     }
 })
