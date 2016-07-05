@@ -37,6 +37,8 @@ app.use(function * (next) {
   // var start = new Date()
 this.set('Access-Control-Allow-Origin', '*')
 this.set('Access-Control-Allow-Methods', 'GET, POST')
+this.set('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+this.set('Access-Control-Allow-Credentials', true)
 yield next
   // var ms = new Date() - start
   // console.log('%s%s - %s', this.method, this.url, ms)

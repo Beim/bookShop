@@ -31,12 +31,12 @@ var bookModel = mongoose.model('books', bookSchema)
 exports.update = {
 	user: (data) => {
 		return new Promise((res, rej) => {
-			
+
 		})
 	},
 	book: (data) => {
 		return new Prmose((res, rej) => {
-			
+			// let condition = 
 		})
 	}
 }

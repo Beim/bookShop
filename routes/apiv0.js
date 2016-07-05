@@ -26,7 +26,7 @@ router.get('/:name', function *(next) {
         //  response[0] = yield db.insert['book'](bookData)
         // response[1] = yield db.insert['user'](userData)
         // this.body = 'Hello World@ connected : ' + response
-        
+
     }
     else if (this.params.name === 'user') {
         let query = this.query
@@ -155,6 +155,9 @@ router.post('/:name', function *(next) {
             }
         }
         else if (body.type === 'put' || body.type === 'PUT') {
+            if (body.data.update && body.data.update.bookId) {
+                delete body.data.update.bookId
+            }
             let response = yield db.update['book'](body.data)
             if (response) {
                 this.body = {
@@ -167,6 +170,19 @@ router.post('/:name', function *(next) {
                     success: false
                 }
             }
+/*
+    body.data = {
+        condition: {
+            bookId: '111'
+        },
+        update: {
+            bookname: 'bookname',
+            ....
+            image: 'image.png',
+            // bookId: '123' // bookId can not be modified
+        }
+    }
+*/
         }
     }
 })
