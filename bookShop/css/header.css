@@ -13,6 +13,9 @@ body{
     height: 0;
     visibility: hidden;
 }
+#test{
+	display:none;
+}
 .topBar{
 	height:31px;
 	line-height: 31px;
