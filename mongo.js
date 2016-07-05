@@ -31,26 +31,70 @@ var bookModel = mongoose.model('books', bookSchema)
 exports.insert = {
 	user: (data) => {
 		return new Promise((res, rej) => {
-			userModel.create(data, (err, doc) => {
+			let limit = {
+				username: data.username
+			}
+			userModel.findOne(limit).exec(function (err, doc){
 				if (err) {
-					console.log('create err : ' + err)
-					res(0)
+					console.log('findOne err: ', err)
 				}
 				else {
-					res(1)
+					if (doc) {
+						res(0)
+					}
+					else {
+						userModel.create(data, function (err1, doc1) {
+							if (err1) {
+								console.log('create err : ' + err)
+								res(0)
+							}
+							else {
+								res(doc1)
+							}
+						})
+					}
 				}
 			})
 		})
 	},
 	book: (data) => {
+		// return new Promise((res, rej) => {
+		// 	bookModel.create(data, (err, doc) => {
+		// 		if (err) {
+		// 			console.log('create err : ' + err)
+		// 			res(0)
+		// 		}
+		// 		else {
+		// 			res(1)
+		// 		}
+		// 	})
+		// })
 		return new Promise((res, rej) => {
-			bookModel.create(data, (err, doc) => {
+			let limit = {
+				bookId: data.bookId
+			}
+			if ( !(parseInt(data.bookId) > 0) ) {
+				res(0)
+			}
+			bookModel.findOne(limit).exec(function (err, doc){
 				if (err) {
-					console.log('create err : ' + err)
-					res(0)
+					console.log('findOne err: ', err)
 				}
 				else {
-					res(1)
+					if (doc) {
+						res(0)
+					}
+					else {
+						bookModel.create(data, function (err1, doc1) {
+							if (err1) {
+								console.log('create err : ' + err)
+								res(0)
+							}
+							else {
+								res(doc1)
+							}
+						})
+					}
 				}
 			})
 		})

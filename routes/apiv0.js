@@ -82,4 +82,79 @@ router.get('/:name', function *(next) {
 
 })
 
+router.post('/:name', function *(next) {
+    if (this.params.name === 'test') {
+        let body = this.request.body
+        console.log(body)
+        this.body = {
+            success: true
+        }
+    }
+    else if (this.params.name === 'user') {
+        let body = this.request.body
+        if (body.type === 'post' || body.type === 'POST') {
+            let response = yield db.insert['user'](body.data)
+            // console.log(response)
+            if (response) {
+                this.body = {
+                    success: true,
+                    data: response
+                }
+            }
+            else {
+                this.body = {
+                    success: false
+                }
+            }
+            
+        }
+        else if (body.type === 'put' || body.type === 'POST') {
+            let response = yield db.update['user']({
+                prevData: body.prevData,
+                data: body.data
+            })
+            console.log(response)
+        }
+        /*
+            body = {
+                type: 'post',
+                data: {
+                    username: 'username',
+                    password: 'passwd'
+                }
+            }
+            body = {
+                type: 'put',
+                prevData: {
+                    username: 'username'
+                },
+                data: {
+                    username: 'newUsername',
+                    password: 'newPasswd'
+                }
+            }
+        */
+    }
+    else if (this.params.name === 'book') {
+        let body = this.request.body
+        if (body.type === 'post' || body.type === 'POST') {
+            let response = yield db.insert['book'](body.data)
+            if (response) {
+                this.body = {
+                    success: true,
+                    data: response
+                }
+            }
+            else {
+                this.body = {
+                    success: false
+                }
+            }
+        }
+        else if (body.type === 'put' || body.type === 'PUT') {
+
+        }
+    }
+})
+
 module.exports = router
