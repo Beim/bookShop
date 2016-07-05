@@ -47,7 +47,7 @@ app.use(function * (next) {
         host: ${this.host}
         method: ${this.method}
         header: ${header}
-        body: body
+        body: ${body}
     `
     ws.write(str)
     yield next
