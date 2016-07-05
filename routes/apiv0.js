@@ -2,11 +2,11 @@
 var router = require('koa-router')()
 const db = require('../mongo.js')
 
-router.get('/', function*(next) {
+router.get('/', function * (next) {
     this.redirect('http://htmlpreview.github.io/?https://github.com/Beim/save/blob/master/html/API_v0.html')
 })
 
-router.get('/:name', function*(next) {
+router.get('/:name', function * (next) {
     if (this.params.name === 'test') {
         // let userData = {
         //     username: 'testmyname',
@@ -83,7 +83,7 @@ router.get('/:name', function*(next) {
 
 })
 
-router.post('/:name', function*(next) {
+router.post('/:name', function * (next) {
     if (this.params.name === 'test') {
         let body = this.request.body
         console.log(body)
@@ -94,7 +94,6 @@ router.post('/:name', function*(next) {
         let body = this.request.body
         if (body.type === 'post' || body.type === 'POST') {
             let response = yield db.insert['user'](body.data)
-                // console.log(response)
             if (response) {
                 this.body = {
                     success: true,

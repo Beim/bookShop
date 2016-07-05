@@ -33,10 +33,11 @@ app.use(parser({
     }
 }))
 app.use(json())
-    // app.use(logger())
+// app.use(logger())
 
-app.use(function*(next) {
+app.use(function * (next) {
     let header = JSON.stringify(this.header)
+    let body = JSON.stringify(this.request.body)
     let ws = fs.createWriteStream('./server.log', {
         flags: 'a+'
     })
@@ -46,12 +47,13 @@ app.use(function*(next) {
         host: ${this.host}
         method: ${this.method}
         header: ${header}
+        body: body
     `
     ws.write(str)
     yield next
 })
 
-app.use(function*(next) {
+app.use(function * (next) {
     // var start = new Date()
 
     this.set('Access-Control-Allow-Origin', '*')
