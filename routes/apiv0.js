@@ -2,11 +2,11 @@
 var router = require('koa-router')()
 const db = require('../mongo.js')
 
-router.get('/', function *(next){
+router.get('/', function*(next) {
     this.redirect('http://htmlpreview.github.io/?https://github.com/Beim/save/blob/master/html/API_v0.html')
 })
 
-router.get('/:name', function *(next) {
+router.get('/:name', function*(next) {
     if (this.params.name === 'test') {
         // let userData = {
         //     username: 'testmyname',
@@ -27,8 +27,7 @@ router.get('/:name', function *(next) {
         // response[1] = yield db.insert['user'](userData)
         // this.body = 'Hello World@ connected : ' + response
 
-    }
-    else if (this.params.name === 'user') {
+    } else if (this.params.name === 'user') {
         let query = this.query
         let limit = {}
         for (let i in query) {
@@ -46,19 +45,18 @@ router.get('/:name', function *(next) {
             length: length,
             response: response
         }
-    }
-    else if (this.params.name === 'book') {
+    } else if (this.params.name === 'book') {
         let query = this.query
         let limit = {}
         let idx = {}
-        // if (query._limit && parseInt(query._limit) > 0) {
-        //     idx.limit = parseInt(query._limit)
-        //     delete query._limit
-        // }
-        // if (query._skip && parseInt(query._skip) > 0) {
-        //     idx.skip = parseInt(query._skip)
-        //     delete query._skip
-        // }
+            // if (query._limit && parseInt(query._limit) > 0) {
+            //     idx.limit = parseInt(query._limit)
+            //     delete query._limit
+            // }
+            // if (query._skip && parseInt(query._skip) > 0) {
+            //     idx.skip = parseInt(query._skip)
+            //     delete query._skip
+            // }
         if (query._page) {
             let arr = query._page.split(',')
             idx.limit = parseInt(arr[1])
@@ -85,33 +83,30 @@ router.get('/:name', function *(next) {
 
 })
 
-router.post('/:name', function *(next) {
+router.post('/:name', function*(next) {
     if (this.params.name === 'test') {
         let body = this.request.body
         console.log(body)
         this.body = {
             success: true
         }
-    }
-    else if (this.params.name === 'user') {
+    } else if (this.params.name === 'user') {
         let body = this.request.body
         if (body.type === 'post' || body.type === 'POST') {
             let response = yield db.insert['user'](body.data)
-            // console.log(response)
+                // console.log(response)
             if (response) {
                 this.body = {
                     success: true,
                     data: response
                 }
-            }
-            else {
+            } else {
                 this.body = {
                     success: false
                 }
             }
-            
-        }
-        else if (body.type === 'put' || body.type === 'POST') {
+
+        } else if (body.type === 'put' || body.type === 'PUT') {
             let response = yield db.update['user']({
                 prevData: body.prevData,
                 data: body.data
@@ -137,8 +132,7 @@ router.post('/:name', function *(next) {
                 }
             }
         */
-    }
-    else if (this.params.name === 'book') {
+    } else if (this.params.name === 'book') {
         let body = this.request.body
         if (body.type === 'post' || body.type === 'POST') {
             let response = yield db.insert['book'](body.data)
@@ -147,14 +141,12 @@ router.post('/:name', function *(next) {
                     success: true,
                     data: response
                 }
-            }
-            else {
+            } else {
                 this.body = {
                     success: false
                 }
             }
-        }
-        else if (body.type === 'put' || body.type === 'PUT') {
+        } else if (body.type === 'put' || body.type === 'PUT') {
             if (body.data.update && body.data.update.bookId) {
                 delete body.data.update.bookId
             }
@@ -164,25 +156,24 @@ router.post('/:name', function *(next) {
                     success: true,
                     data: response
                 }
-            }
-            else {
+            } else {
                 this.body = {
                     success: false
                 }
             }
-/*
-    body.data = {
-        condition: {
-            bookId: '111'
-        },
-        update: {
-            bookname: 'bookname',
-            ....
-            image: 'image.png',
-            // bookId: '123' // bookId can not be modified
-        }
-    }
-*/
+            /*
+                body.data = {
+                    condition: {
+                        bookId: '111'
+                    },
+                    update: {
+                        bookname: 'bookname',
+                        ....
+                        image: 'image.png',
+                        // bookId: '123' // bookId can not be modified
+                    }
+                }
+            */
         }
     }
 })
