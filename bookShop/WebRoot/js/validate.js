@@ -3,6 +3,8 @@ var login_url = 'http://localhost:8080/bookShop/userValidate';
 var register_url = 'http://localhost:8080/bookShop/userRegister';
 var judge_url = 'http://localhost:8080/bookShop/judgeLogin'
 
+
+
 //刷新验证
 window.onload = function(){
 		let url = 'http://localhost:8080/bookShop/judgeLogin'
@@ -26,83 +28,82 @@ window.onload = function(){
 		    }
 		}
 		xhr.send()
+
+		//验证登录框
+		$(document).ready(function(){
+				$("#login_input").validate({
+					rules:{
+						login_username:{
+							required:true,
+							minlength:4,
+							maxlength:10
+						},
+						login_password:{
+							required:true,
+							minlength:6,
+							maxlength:16
+						}
+					},
+					messages:{
+						login_username:{
+							required:"必须要填写用户名",
+							minlength:"用户名长度要大于4位",
+							maxlength:"用户名长度要小于10位"
+						},
+						login_password:{
+							required:"必须要填写密码",
+							minlength:"密码长度必须大于6位",
+							maxlength:"密码长度必须小于16位"
+						}
+					},
+				})
+			});
+
+
+
+		//验证注册框
+		$(document).ready(function(){
+				$("#register_input").validate({
+					rules:{
+						register_username:{
+							required:true,
+							minlength:4,
+							maxlength:10
+						},
+						register_password1:{
+							required:true,
+							minlength:6,
+							maxlength:16
+						},
+						register_password2:{
+							required:true,
+							minlength:6,
+							maxlength:16,
+							equalTo:"#register_password1"
+						},
+					},
+					messages:{
+						register_username:{
+							required:"必须要填写用户名",
+							minlength:"用户名长度要大于4位",
+							maxlength:"用户名长度要小于10位"
+						},
+						register_password1:{
+							required:"必须要填写密码",
+							minlength:"密码长度必须大于6位",
+							maxlength:"密码长度必须小于16位"
+						},
+						register_password2:{
+							required:"必须要填写密码",
+							minlength:"密码长度必须大于6位",
+							maxlength:"密码长度必须小于16位",
+							equalTo:"两次填写密码必须一致"
+						}
+					},
+				})
+			});
+
 }
-
-
-//验证登录框
-$(document).ready(function(){
-		$("#login_input").validate({
-			rules:{
-				login_username:{
-					required:true,
-					minlength:4,
-					maxlength:10
-				},
-				login_password:{
-					required:true,
-					minlength:6,
-					maxlength:16
-				}
-			},
-			messages:{
-				login_username:{
-					required:"必须要填写用户名",
-					minlength:"用户名长度要大于4位",
-					maxlength:"用户名长度要小于10位"
-				},
-				login_password:{
-					required:"必须要填写密码",
-					minlength:"密码长度必须大于6位",
-					maxlength:"密码长度必须小于16位"
-				}
-			},
-		})
-	});
-
-
-
-//验证注册框
-$(document).ready(function(){
-		$("#register_input").validate({
-			rules:{
-				register_username:{
-					required:true,
-					minlength:4,
-					maxlength:10
-				},
-				register_password1:{
-					required:true,
-					minlength:6,
-					maxlength:16
-				},
-				register_password2:{
-					required:true,
-					minlength:6,
-					maxlength:16,
-					equalTo:"#register_password1"
-				},
-			},
-			messages:{
-				register_username:{
-					required:"必须要填写用户名",
-					minlength:"用户名长度要大于4位",
-					maxlength:"用户名长度要小于10位"
-				},
-				register_password1:{
-					required:"必须要填写密码",
-					minlength:"密码长度必须大于6位",
-					maxlength:"密码长度必须小于16位"
-				},
-				register_password2:{
-					required:"必须要填写密码",
-					minlength:"密码长度必须大于6位",
-					maxlength:"密码长度必须小于16位",
-					equalTo:"两次填写密码必须一致"
-				}
-			},
-		})
-	});
-
 
 
 

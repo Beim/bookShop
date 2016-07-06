@@ -89,37 +89,43 @@ public class JudgeLogin extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String mail = null;
-		try {  
-		 	request.setCharacterEncoding("utf-8");  
-            StringBuffer sb = new StringBuffer();  
-            InputStream is = request.getInputStream();  
-            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
-            BufferedReader br = new BufferedReader(isr);  
-            String s = "";  
-            while ((s = br.readLine()) != null) {  
-                sb.append(s);  
-            }  
-            String str = sb.toString();
-            mail = str;
-            System.out.println("接收到的字符串内容是"+str);  
-        } catch (IOException e1) {  
-            // TODO Auto-generated catch block  
-            e1.printStackTrace();  
-        }
-		String id = mail;
+//		String mail = null;
+//		try {  
+//		 	request.setCharacterEncoding("utf-8");  
+//            StringBuffer sb = new StringBuffer();  
+//            InputStream is = request.getInputStream();  
+//            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
+//            BufferedReader br = new BufferedReader(isr);  
+//            String s = "";  
+//            while ((s = br.readLine()) != null) {  
+//                sb.append(s);  
+//            }  
+//            String str = sb.toString();
+//            mail = str;
+//            System.out.println("接收到的字符串内容是"+str);  
+//        } catch (IOException e1) {  
+//            // TODO Auto-generated catch block  
+//            e1.printStackTrace();  
+//        }
+//		String id = mail;
 		String flag = null;
-		System.out.println(id);
-		HttpSessionContext SessCon= request.getSession(false).getSessionContext();
-		HttpSession session1 = SessCon.getSession(id); 
+//		System.out.println(id);
+		HttpSession session = request.getSession();
+//		HttpSessionContext SessCon= request.getSession(false).getSessionContext();
+//		HttpSession session1 = SessCon.getSession(id); 
 		//flag = session.getAttribute("loginFlag").toString();
-		if (session1.getAttribute("username")!=null)
+		if (session.getAttribute("username")!=null)
 		{
-			Map data = new HashMap();
-			data.put("success", "true");
-			data.put("username", session1.getAttribute("username"));
-			data.put("password", session1.getAttribute("password"));
-			JSONArray json = JSONArray.fromObject(data);
+			Map success = new HashMap();
+			Map username = new HashMap();
+			Map password = new HashMap();
+			success.put("success", "true");
+			username.put("username", session.getAttribute("username"));
+			password.put("password", session.getAttribute("password"));
+			JSONArray json = new JSONArray();
+			json.add(0, success);
+			json.add(1, username);
+			json.add(2, password);
 			System.out.println(json);
 			response.getWriter().println(json);
 			System.out.println("成功");
