@@ -1,0 +1,36 @@
+.item{
+	margin-left: 15%;
+	margin-right: 15%;
+	background-color: lightblue;
+	margin-top: 20px;
+	position: relative;
+	height:200px;
+	min-height: 200px;
+	min-width: 900px;
+}
+.bookImage{
+	height:150px;
+	width:100px;
+	border:1px #ccc solid;
+	margin-top: 25px;
+	margin-left: 50px;
+	position: absolute;
+}
+.bookname{
+	position: absolute;
+	margin-top: 25px;
+	margin-left: 250px;
+	font-size: 15px;
+}
+.writer{
+	position: absolute;
+	margin-top: 75px;
+	margin-left: 250px;
+	font-size: 15px;
+}
+.price{
+	position: absolute;
+	margin-top: 75px;
+	margin-left: 250px;
+	font-size: 15px;	
+}

@@ -13,6 +13,9 @@ body{
     height: 0;
     visibility: hidden;
 }
+#test{
+	display:none;
+}
 .topBar{
 	height:31px;
 	line-height: 31px;
@@ -31,6 +34,13 @@ body{
 }
 .right{
 	float:right;
+	
+}
+.right1{
+	margin-right: 50px;
+}
+.right2{
+	margin-right:50px;
 }
 .midBar{
 	height: 130px;
