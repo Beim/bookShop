@@ -1,7 +1,0 @@
-<html>
-<body>
-<p>{$name}</p>
-<p>{$password}</p>
-</script>
-</body>
-</html>

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.HttpRequest;
+import tool.HttpRequest;
 import model.User;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -77,6 +78,7 @@ public class UserRegister extends HttpServlet {
 			throws ServletException, IOException {
 
 		String mail="";
+		String str = null;
 		 try {  
 			 	request.setCharacterEncoding("utf-8");  
 	            StringBuffer sb = new StringBuffer();  
@@ -87,13 +89,14 @@ public class UserRegister extends HttpServlet {
 	            while ((s = br.readLine()) != null) {  
 	                sb.append(s);  
 	            }  
-	            String str = sb.toString();
-	            mail = str;
-	            System.out.println(str + "=========str");  
+	            str = sb.toString();
+	            
+	            System.out.println("接收到的字符串内容是"+str);  
 	        } catch (IOException e1) {  
 	            // TODO Auto-generated catch block  
 	            e1.printStackTrace();  
 	        }
+		mail = str;
 		User user = new User();
 		JSONObject jsonMail = JSONObject.fromObject(mail);
 		String username = jsonMail.getString("username");
@@ -111,62 +114,13 @@ public class UserRegister extends HttpServlet {
 		String jsonMessage = User.addUser(user);
 		
 		JSONObject json = JSONObject.fromObject(jsonMessage);
-		
-		
-//		String success = "false";
-//		//'http://beim.site:3333/apiv0/user?' + queryStr
-//		String jsonMessage = HttpRequest.sendGet("http://beim.site:3333/apiv0/user",
-//				"username="+username+"&password="+password);
-//		try{
-//			 JSONObject userJson = JSONObject.fromObject(jsonMessage);
-//			 success = (userJson.getString("success"));
-//			
-//		}catch(Exception e)
-//		{
-//			System.out.println("error");
-//		}
-//		
-		
-		
-//		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-//		out.println("<HTML>");
-//		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-//		out.println("username:"+username);
-//		out.println("password:"+password);
-//		out.println("  <BODY>");
-//		out.println("    This is ");
-//		out.println(this.getClass());
-//		out.println(", using the POST method");
-//		Map params = new HashMap();
 		String success = json.getString("success");
 		if (success.equals("true"))
-			//out.println("<br/>"+"Congratulation for login successfully!");
-//			params.put("success", "true");
 		{
 			request.getSession().setAttribute("username", username);
 			request.getSession().setAttribute("password", password);
 			request.getSession().setAttribute("loginFlag", "1");
-		}
-//		else
-			//out.println("<br/>"+"unfortunately you are lose.");
-//			params.put("success", "false");
-//		out.println("  </BODY>");
-//		out.println("</HTML>");
-		
-		//JSONArray json = JSONArray.fromObject(params);
-		
-//		String jsonString = json.toString();
-		
-		//String Message1 = HttpRequest.sendPost("http://beim.site:3333/apiv0/user",
-			//	jsonString);
-		
-//		response.setHeader("Access-Control-Allow-Origin", "*");
-		
-		//response.addHeader(name, value);
-		
-
-		
-		
+		}		
 		System.out.println(json);
 		response.getWriter().print(json);
 	}

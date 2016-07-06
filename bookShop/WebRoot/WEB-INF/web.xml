@@ -3,6 +3,9 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
    version="2.4">  
+   <session-config>
+<session-timeout>240</session-timeout>
+</session-config>
   <servlet>
     <servlet-name>userValidate</servlet-name>
     <servlet-class>controller.UserValidate</servlet-class>
@@ -13,10 +16,22 @@
     <servlet-name>UserRegister</servlet-name>
     <servlet-class>controller.UserRegister</servlet-class>
   </servlet>
+  <servlet>
+    <description>location for user judge if login</description>
+    <display-name>judge user if login</display-name>
+    <servlet-name>JudgeLogin</servlet-name>
+    <servlet-class>controller.JudgeLogin</servlet-class>
+  </servlet>
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>filter.LoginFilter</filter-class>
+  </filter>
+
+
 
   <filter>
     <filter-name>CorsFilter</filter-name>
-    <filter-class>CorsFilter</filter-class>
+    <filter-class>filter.CorsFilter</filter-class>
   </filter>
   <servlet-mapping>
     <servlet-name>userValidate</servlet-name>
@@ -24,8 +39,16 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UserRegister</servlet-name>
-    <url-pattern>/UserRegister</url-pattern>
+    <url-pattern>/userRegister</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>JudgeLogin</servlet-name>
+    <url-pattern>/judgeLogin</url-pattern>
+  </servlet-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/LoginFilter</url-pattern>
+  </filter-mapping>
   <filter-mapping>
     <filter-name>CorsFilter</filter-name>
     <url-pattern>/*</url-pattern>

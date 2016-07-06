@@ -19,14 +19,5 @@
 			<attribute name="owner.project.facets" value="jst.web.jstl"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry exported="true" kind="lib" path="D:/信息/浏览器下载/json-lib-2.4-jdk15.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/信息/浏览器下载/commons-collections-3.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/信息/浏览器下载/commons-logging-1.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/信息/浏览器下载/ezmorph-1.0.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/信息/浏览器下载/commons-beanutils-1.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/信息/浏览器下载/commons-lang-2.5.jar"/>
-=======
->>>>>>> f9150fbd6846b33ccb35d2ce00fb7bb04d99ecf1
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
