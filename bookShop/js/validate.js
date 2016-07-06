@@ -1,3 +1,34 @@
+//登录 注册验证url
+var login_url = 'http://192.168.191.9:8080/bookShop/userValidate';
+var register_url = 'http://192.168.191.9:8080/bookShop/userRegister';
+var judge_url = 'http://192.168.191.9:8080/bookShop/judgeLogin'
+
+//刷新验证
+window.onload = function(){
+		let url = 'http://192.168.191.9:8080/bookShop/judgeLogin'
+		let xhr = new XMLHttpRequest()
+		xhr.responseType = 'json'
+		xhr.open('post', url)
+		xhr.setRequestHeader('withCredentials', true)
+		xhr.onload = (e) => {
+		    let response = e.target.response
+		    console.log(JSON.stringify(response))
+		    //Do something...
+		    if (response[0].success == 'true') {
+		    	//xxx
+		    	$("#right1").css("display","none");
+				$("#right2").css("display","block");
+				document.getElementById('user').innerHTML = '['+response[1].username+']';
+		    }
+		    else{
+		    	$("#right1").css("display","block");
+		    	$("#right2").css("display","none");
+		    }
+		}
+		xhr.send()
+}
+
+
 //验证登录框
 $(document).ready(function(){
 		$("#login_input").validate({
@@ -73,6 +104,8 @@ $(document).ready(function(){
 	});
 
 
+
+
 //验证登录信息
 	var login = function(){
 		var login_username =  $('#login_username').val();
@@ -82,7 +115,7 @@ $(document).ready(function(){
 				username:login_username,
 				password:login_password
 			}
-			var url='http://192.168.10.5:8080/bookShop/userValidate'
+			var url=login_url
 			var login_message=new XMLHttpRequest()
 			login_message.responseType='json'
 			login_message.open('post',url)
@@ -119,7 +152,7 @@ var register = function(){
 			username:register_username,
 			password:register_password
 		}
-		var url='http://192.168.10.5:8080/bookShop/UserRegister'
+		var url= register_url
 		var register_message=new XMLHttpRequest()
 		register_message.responseType='json'
 		register_message.open('post',url)
@@ -128,7 +161,7 @@ var register = function(){
 			var register_response=e.target.response
 			// console.log(e.target.response)
 			if(register_response.success == true){
-				var url='http://192.168.10.5:8080/bookShop/userValidate'
+				var url=login_url
 				var login_message=new XMLHttpRequest()
 				login_message.responseType='json'
 				login_message.open('post',url)
@@ -138,7 +171,8 @@ var register = function(){
 					console.log(login_response[0].success)
 					$("#right1").css("display","none");
 					$("#right2").css("display","block");
-					document.getElementById('user').innerHTML='['+register_response.data+']';
+					console.log(register_response.data)
+					document.getElementById('user').innerHTML='['+register_response.data.username+']';
 					document.getElementById('register_close').click();
 				}
 				login_message.send(JSON.stringify(data))
@@ -152,4 +186,29 @@ var register = function(){
 	else{
 		alert("请输入合法的注册信息");
 	}
+}
+
+//退出登录
+var logout = function(){
+	console.log("logout")
+		let url = login_url
+		let xhr = new XMLHttpRequest()
+		xhr.responseType = 'json'
+		xhr.open('GET', url)
+		xhr.onload = (e) => {
+		    let response = e.target.response
+		    console.log(JSON.stringify(response))
+		    //Do something...
+		    if (response[0].success == 'true') {
+		    	//xxx
+		    	$("#right2").css('display','none');
+		    	$("#right1").css('display','block');
+		    	alert("退出成功");
+		    	
+		    }
+		    else{
+		    	alert("退出出现错误");
+		    }
+		}
+		xhr.send()
 }

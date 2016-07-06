@@ -139,6 +139,9 @@ let total = rcc({
                         'className': 'amount'
                     }, '数量: ' + value.amount),
                     rce('div', {
+                        'className': 'price'
+                    }, '定价: 未知'),
+                    rce('div', {
                         'className': 'bookId'
                     }, 'ID: ' + value.bookId),
                     rce('div', {
