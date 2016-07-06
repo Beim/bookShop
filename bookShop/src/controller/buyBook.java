@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,17 +13,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import tool.HttpRequest;
-import model.User;
+import model.Book;
+import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class UserRegister extends HttpServlet {
+public class buyBook extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public UserRegister() {
+	public buyBook() {
 		super();
 	}
 
@@ -49,19 +48,49 @@ public class UserRegister extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		String mail="";
+		 try {  
+			 	request.setCharacterEncoding("utf-8");  
+	            StringBuffer sb = new StringBuffer();  
+	            InputStream is = request.getInputStream();  
+	            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
+	            BufferedReader br = new BufferedReader(isr);  
+	            String s = "";  
+	            while ((s = br.readLine()) != null) {  
+	                sb.append(s);  
+	            }  
+	            String str = sb.toString();
+	            mail = str;
+	            System.out.println("接收到的字符串内容是"+str);  
+	        } catch (IOException e1) {  
+	            // TODO Auto-generated catch block  
+	            e1.printStackTrace();  
+	        }
+		 JSONObject jsonMail = JSONObject.fromObject(mail);
+		 
+		 Book book = new Book();
+		 
+		 book.setBookId(jsonMail.getString("bookId"));
+		 book.setBookName(jsonMail.getString("bookname"));
+		 book.setAmount(Integer.parseInt(jsonMail.getString("amount")));
+		 
+		 String result = Book.buyBook(book);
+		 
+		 JSONObject jsonResult = JSONObject.fromObject(result);
+		 
+		 Map index = new HashMap();
+		 
+		 if (jsonResult.getString("success").equals("true"))
+		 {
+			 index.put("success", "true");
+		 }
+		 else 
+			 index.put("success", "false");
+		 
+		 JSONArray jsonArray = JSONArray.fromObject(index);
+		 
+		 response.getWriter().println(jsonArray);
+		 
 	}
 
 	/**
@@ -78,7 +107,6 @@ public class UserRegister extends HttpServlet {
 			throws ServletException, IOException {
 
 		String mail="";
-		String str = null;
 		 try {  
 			 	request.setCharacterEncoding("utf-8");  
 	            StringBuffer sb = new StringBuffer();  
@@ -89,40 +117,37 @@ public class UserRegister extends HttpServlet {
 	            while ((s = br.readLine()) != null) {  
 	                sb.append(s);  
 	            }  
-	            str = sb.toString();
-	            
+	            String str = sb.toString();
+	            mail = str;
 	            System.out.println("接收到的字符串内容是"+str);  
 	        } catch (IOException e1) {  
 	            // TODO Auto-generated catch block  
 	            e1.printStackTrace();  
 	        }
-		mail = str;
-		User user = new User();
-		JSONObject jsonMail = JSONObject.fromObject(mail);
-		String username = jsonMail.getString("username");
-		
-		String password = jsonMail.getString("password");
-		System.out.println("注册");
-		System.out.println(username);
-		System.out.println(password);
-		
-		user.setUserName(username);
-		user.setPassword(password);
-		
-		System.out.println(password);
-		
-		String jsonMessage = User.addUser(user);
-		
-		JSONObject json = JSONObject.fromObject(jsonMessage);
-		String success = json.getString("success");
-		if (success.equals("true"))
-		{
-			request.getSession().setAttribute("username", username);
-			request.getSession().setAttribute("password", password);
-			request.getSession().setAttribute("loginFlag", "true");
-		}		
-		System.out.println(json);
-		response.getWriter().print(json);
+		 JSONObject jsonMail = JSONObject.fromObject(mail);
+		 
+		 Book book = new Book();
+		 
+		 book.setBookId(jsonMail.getString("bookId"));
+		 book.setBookName(jsonMail.getString("bookname"));
+		 book.setAmount(Integer.parseInt(jsonMail.getString("amount")));
+		 
+		 String result = Book.buyBook(book);
+		 
+		 JSONObject jsonResult = JSONObject.fromObject(result);
+		 
+		 Map index = new HashMap();
+		 
+		 if (jsonResult.getString("success").equals("true"))
+		 {
+			 index.put("success", "true");
+		 }
+		 else 
+			 index.put("success", "false");
+		 
+		 JSONArray jsonArray = JSONArray.fromObject(index);
+		 
+		 response.getWriter().println(jsonArray);
 	}
 
 	/**

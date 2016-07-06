@@ -15,7 +15,7 @@ public class User {
 		userName = "";
 		password = "";
 	}
-	public static JSONObject validateUser(User user, String id)
+	public static JSONObject validateUser(User user)
 	{
 		String jsonMessage = HttpRequest.sendGet("http://beim.site:3333/apiv0/user",
 				"username="+user.getUserName()+"&password="+user.getPassword());
@@ -34,7 +34,7 @@ public class User {
 		
 		mail.put("success", success);
 		
-		mail.put("id", id);
+//		mail.put("id", id);
 		
 		JSONObject jsonMail = JSONObject.fromObject(mail);
 		System.out.println(jsonMail);

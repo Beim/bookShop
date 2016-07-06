@@ -1,10 +1,12 @@
 package model;
 import tool.HttpRequest;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 public class Book {
 	private String bookName;
@@ -23,6 +25,35 @@ public class Book {
 		publisher	="";
 		condition	="";
 		amount		=0;
+	}
+	public static String buyBook(Book book)
+	{
+		Map type = new HashMap();
+		Map condition = new HashMap();
+		condition.put("bookId", book.getBookId());
+		Map update = new HashMap();
+		update.put("amount", book.getAmount());
+		update.put("bookname", book.getBookName());
+		Map data = new HashMap();
+		data.put("condition", condition);
+		data.put("update", update);
+		Map mail = new HashMap();
+		mail.put("data", data);
+		mail.put("type", "put");
+//		JSONArray condition = new JSONArray();
+//		JSONArray update = new JSONArray();
+//		condition.add("bookId", book.getBookId());
+//		update.add(0, "dog");
+//		jsonStrs.add(2, "bird");
+//		jsonStrs.add(3, "duck");
+//		
+		JSONObject json = JSONObject.fromObject(mail);
+		String jsonMessage;
+		jsonMessage = HttpRequest.sendPost("http://beim.site:3333/apiv0/book",
+				json.toString());
+		System.out.println(json.toString());
+		return jsonMessage;
+		
 	}
 	public static String addBook(Book book){
 		Map data = new HashMap();

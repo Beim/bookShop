@@ -177,7 +177,7 @@ public class UserValidate extends HttpServlet {
 		System.out.println(user.getUserName());
 		System.out.println(user.getPassword());
 		System.out.println("登录");
-		JSONObject json = User.validateUser(user, session.getId());
+		JSONObject json = User.validateUser(user);
 		String username = null;
 		String password = null;
 		if (json.getString("success").equals("true"))
