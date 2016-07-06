@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<script src="https://cdn.bootcss.com/react/15.1.0/react.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.1.0/react-dom.js"></script>
 </head>
 <body>
 	<header>
@@ -101,10 +103,10 @@
 					<div class="midBar_logo">
 						<img src="img/icon/logo.png" class="img-circle logo" height="75" width="75">
 					</div>
-					<form class="midBar_serch search" >
-						<input type="text" class="searchText" placeholder="请输入要查询的内容" name="key" >
-						<input class="btn-info btn searchBtn" type="submit" value="搜索"/>
-					</form>
+					<div class="midBar_serch search" >
+						<input type="text" class="searchText" placeholder="请输入要查询的内容" name="key" id="searchText" >
+						<input class="btn-info btn searchBtn" type="submit" value="搜索" onclick="search()"/>
+					</div>
 					<div class="midBar_shopcar">
 						<div class="shopcar">
 							<img src="img/icon/shopcar.png" class="img-rounded " height="46" width="50">
@@ -117,13 +119,15 @@
 		
 	</header>
 	<content>
-
+		<div id="reactDiv"></div>
 	</content>
 
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.validate-1.13.1.js"></script>	
 	<script type="text/javascript" src="js/validate.js"></script>
+	<script type="text/javascript" src="js/showlist.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript">
 	//登录信息栏
 	$("#right2").css("display","none");
