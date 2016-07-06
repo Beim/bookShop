@@ -32,15 +32,15 @@
                     type: 'put',
                     data: {
                         condition: {
-                            bookId: '1'
+                            bookId: '1979'
                         },
                         update: {
                             bookname: 'updatedName'
                         }
                     }
                 }
-                let url = 'http://localhost:3333/apiv0/book'
-                // let url = 'http://beim.site:3333/apiv0/book'
+                // let url = 'http://localhost:3333/apiv0/book'
+                let url = 'http://beim.site:3333/apiv0/book'
                 let xhr = new XMLHttpRequest()
                 xhr.responseType = 'json'
                 xhr.open('POST', url)
