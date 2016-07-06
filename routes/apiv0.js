@@ -106,11 +106,11 @@ router.post('/:name', function * (next) {
             }
 
         } else if (body.type === 'put' || body.type === 'PUT') {
-            let response = yield db.update['user']({
-                prevData: body.prevData,
-                data: body.data
-            })
-            console.log(response)
+            // let response = yield db.update['user']({
+            //     prevData: body.prevData,
+            //     data: body.data
+            // })
+            // console.log(response)
         }
         /*
             body = {
