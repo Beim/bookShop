@@ -1,6 +1,6 @@
 var shopCar = function(){
- $("#showlist").css('display','none');
- $("#shopCar").css('display','block')
+	$("#showlist").css('display','none');
+	$("#shopCar").css('display','block')
 }
 var data = []
 var addToCar =function(e){
@@ -52,14 +52,14 @@ var addToCar =function(e){
 }
 
 var buy = function(){
-		let url = 'http://192.168.191.9:8080/bookShop/buyBook'
-		let buy = new XMLHttpRequest()
-		buy.responseType = 'json'
-		buy.open('post', url)
-		buy.setRequestHeader('Content-Type','application/x-javascript;charset=UTF-8')
-		buy.onload = (e) => {
-		    let buy_response = e.target.response
-		    console.log(JSON.stringify(buy_response))
+	let url = 'http://192.168.191.9:8080/bookShop/buyBook'
+	let buy = new XMLHttpRequest()
+	buy.responseType = 'json'
+	buy.open('post', url)
+	buy.setRequestHeader('Content-Type','application/x-javascript;charset=UTF-8')
+	buy.onload = (e) => {
+		let buy_response = e.target.response
+		console.log(JSON.stringify(buy_response))
 		    //Do something...
 		    if (buy_response[0].success == 'true') {
 		    	$(".showCar_content_right").empty();
@@ -72,5 +72,5 @@ var buy = function(){
 		}
 		buy.send(JSON.stringify(data))
 
-}
-}
+	}
+
