@@ -145,13 +145,24 @@ let total = rcc({
                         'className': 'bookId'
                     }, 'ID: ' + value.bookId),
                     rce('div', {
-                            'className': 'collect'
+                            'className': 'collect btn btn-success',
+                            'onClick': addToCar
                         },
-                        rce('a', null, '收藏')
+                        
+                        rce('a', null,
+                            rce('img', {
+                            'className': 'bookCar',
+                            'src': './img/icon/bookcar.png'
+
+                            }),
+                         '收藏')
+                        
                     )
+
                 )
             )
         })
+        let btnStyle = list.length > 0 ? {} : {'display': 'none'}
         return rce('div', null,
             rce('div', {
                     'className': 'list'
@@ -163,10 +174,11 @@ let total = rcc({
                 })
             ),
             rce('div', {
-                    'className': 'btnBar'
+                    'className': 'btnBar',
+                    'style': btnStyle
                 },
                 rce('div', {
-                        'className': 'prevBtn'
+                        'className': 'prevBtn btn btn-info'
                     },
                     rce('a', {
                             'dataMyType': 'prev',
@@ -176,7 +188,7 @@ let total = rcc({
                     )
                 ),
                 rce('div', {
-                        'className': 'nextBtn'
+                        'className': 'nextBtn btn btn-info'
                     },
                     rce('a', {
                             'dataMyType': 'next',

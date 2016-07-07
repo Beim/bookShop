@@ -1,12 +1,21 @@
+#reactDiv{
+	position: relative;
+	padding-left: 15%;
+	padding-right: 15%;
+	margin-bottom: 150px;
+}
 .item{
-	margin-left: 15%;
-	margin-right: 15%;
 	background-color: lightblue;
 	margin-top: 20px;
 	position: relative;
 	height:200px;
 	min-height: 200px;
 	min-width: 900px;
+	border-radius: 10px;
+	color:black;
+}
+#notExistBtn{
+	display:none;
 }
 .bookImage{
 	height:150px;
@@ -28,9 +37,65 @@
 	margin-left: 250px;
 	font-size: 15px;
 }
-.price{
+.bookId{
 	position: absolute;
-	margin-top: 75px;
+	margin-top: 125px;
 	margin-left: 250px;
 	font-size: 15px;	
+}
+.publisher{
+	position: absolute;
+	margin-top: 25px;
+	margin-left: 450px;
+}
+.publishTime{
+	position: absolute;
+	margin-top: 75px;
+	margin-left: 450px;
+}
+.amount{
+	position: absolute;
+	margin-top: 125px;
+	margin-left: 450px;
+}
+.price{
+	position: absolute;
+	margin-top: 50px;
+	margin-left: 750px;
+	color:red;
+}
+.collect{
+	position: absolute;
+	margin-top: 100px;
+	margin-left: 750px;
+	width:80px;
+	height:40px;
+	background-color: orange;
+}
+.collect:hover{
+	background-color: yellow;
+}
+.bookCar{
+	width:50px;
+	height:40px;
+	margin-left: -20px;
+	margin-top: -8px;
+}
+.prevBtn{
+	position: absolute;
+	margin-left: 300px;
+	width:80px;
+	height:40px;
+	margin-top: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+.nextBtn{
+	position: absolute;
+	margin-left: 500px;
+	width:80px;
+	height:40px;
+	margin-top: 30px;
+	text-align: center;
+	line-height: 30px;
 }

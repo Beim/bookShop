@@ -3,31 +3,31 @@ var login_url = 'http://192.168.191.9:8080/bookShop/userValidate';
 var register_url = 'http://192.168.191.9:8080/bookShop/userRegister';
 var judge_url = 'http://192.168.191.9:8080/bookShop/judgeLogin'
 
-//刷新验证
-window.onload = function(){
-		let url = 'http://192.168.191.9:8080/bookShop/judgeLogin'
-		let xhr = new XMLHttpRequest()
-		xhr.responseType = 'json'
-		xhr.open('post', url)
-		xhr.setRequestHeader('withCredentials', true)
-		xhr.onload = (e) => {
-		    let response = e.target.response
-		    console.log(JSON.stringify(response))
-		    //Do something...
-		    if (response[0].success == 'true') {
-		    	//xxx
-		    	$("#right1").css("display","none");
-				$("#right2").css("display","block");
-				document.getElementById('user').innerHTML = '['+response[1].username+']';
-		    }
-		    else{
-		    	$("#right1").css("display","block");
-		    	$("#right2").css("display","none");
-		    }
-		}
-		xhr.send()
+// //刷新验证
+// window.onload = function(){
+// 		let url = 'http://192.168.191.9:8080/bookShop/judgeLogin'
+// 		let xhr = new XMLHttpRequest()
+// 		xhr.responseType = 'json'
+// 		xhr.open('post', url)
+// 		xhr.setRequestHeader('withCredentials', true)
+// 		xhr.onload = (e) => {
+// 		    let response = e.target.response
+// 		    console.log(JSON.stringify(response))
+// 		    //Do something...
+// 		    if (response[0].success == 'true') {
+// 		    	//xxx
+// 		    	$("#right1").css("display","none");
+// 				$("#right2").css("display","block");
+// 				document.getElementById('user').innerHTML = '['+response[1].username+']';
+// 		    }
+// 		    else{
+// 		    	$("#right1").css("display","block");
+// 		    	$("#right2").css("display","none");
+// 		    }
+// 		}
+// 		xhr.send()
 
-}
+// }
 
 
 //验证登录输入
