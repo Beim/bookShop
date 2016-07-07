@@ -46,11 +46,11 @@
 										<label for="username">
 											用户名
 										</label><br>
-										<input type="text" name="login_username" id="login_username" placeholder="请输入用户名/账号/手机号" name="username"><br>
+										<input type="text" name="login_username" id="login_username" placeholder="请输入4-10位的用户名" onchange="validate();"><span id="login_username_validate"></span> <br>
 										<label for="password">
 											密码
 										</label><br>
-										<input type="password" id="login_password" name="login_password" placeholder="请输入密码" name="password">
+										<input type="password" id="login_password" name="login_password" placeholder="请输入6-16位的密码" onchange="validate();"><span id="login_password_validate"></span>
 										<a href="#">忘记密码?</a>
 										<a href="#" data-dismiss="modal">没有账号?去注册！</a>
 									</div>
@@ -78,11 +78,11 @@
 							<div class="modal-body login_body">
 								<div id="register_input" name="register_input" class="register_input login_input">
 									<label>填写用户名</label><br>
-									<input type="text" id="register_username" placeholder="请填写您要使用的用户名" name="register_username"><br>
+									<input type="text" id="register_username" placeholder="请填写4-10位的用户名" name="register_username"onchange="validate();"><span id="register_username_validate"></span> <br>
 									<label>填写密码</label><br>
-									<input type="password" id="register_password1" name="register_password1" placeholder="请填写您的密码" name = "password"><br>
-									<label>确认密码</label><br>
-									<input type="password" id="register_password2" name="register_password2" placeholder="请再次填写您的密码来确认">
+									<input type="password" id="register_password1" name="register_password1" placeholder="请填写6-16位的密码"onchange="validate();"><span id="register_password1_validate"></span> <br>
+									<label>填写密码</label><br>
+									<input type="password" id="register_password2" name="register_password2" placeholder="请再次填写您的密码来确认"onchange="validate();"><span id="register_password2_validate"></span>
 									<a href="#" data-dismiss="modal">已有账号? 去登陆！</a>
 								</div>
 							</div>

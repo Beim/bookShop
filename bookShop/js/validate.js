@@ -26,84 +26,56 @@ window.onload = function(){
 		    }
 		}
 		xhr.send()
+
 }
 
 
-//验证登录框
+//验证登录输入
+var validate = function(){
+	var login_username=$('#login_username').val();
+	var login_password=$('#login_password').val();
+	var register_username=$('#register_username').val();
+	var register_password1=$('#register_password1').val();
+	var register_password2=$('#register_password2').val();
+	if(login_username.length<4 || login_username.length>10){
+		document.getElementById('login_username_validate').innerHTML="请输入4-10位的用户名";
+	}
+	else{
+		document.getElementById('login_username_validate').innerHTML="";
+	}
+	if(login_password.length<6 || login_password.length>16){
+		document.getElementById('login_password_validate').innerHTML="请输入6-16位的密码";
+	}
+	else{
+		document.getElementById('login_password_validate').innerHTML="";
+	}
+	if(register_username.length<4 || register_username.length>10){
+		document.getElementById('register_username_validate').innerHTML="请输入4-10位的用户名"
+	}
+	else{
+		document.getElementById('register_username_validate').innerHTML="";
+	}
+	if(register_password1.length<6 || register_password1.length>16){
+		document.getElementById('register_password1_validate').innerHTML="请输入6-16位的密码"
+	}
+	else{
+		document.getElementById('register_password1_validate').innerHTML="";
+	}
+	if(register_password2 != register_password1){
+		document.getElementById('register_password2_validate').innerHTML="请输入相同的密码"
+	}
+	else{
+	    document.getElementById('register_password2_validate').innerHTML=""	}
+	
+};
+
+
+
+//验证注册输入
+
 $(document).ready(function(){
-		$("#login_input").validate({
-			rules:{
-				login_username:{
-					required:true,
-					minlength:4,
-					maxlength:10
-				},
-				login_password:{
-					required:true,
-					minlength:6,
-					maxlength:16
-				}
-			},
-			messages:{
-				login_username:{
-					required:"必须要填写用户名",
-					minlength:"用户名长度要大于4位",
-					maxlength:"用户名长度要小于10位"
-				},
-				login_password:{
-					required:"必须要填写密码",
-					minlength:"密码长度必须大于6位",
-					maxlength:"密码长度必须小于16位"
-				}
-			},
-		})
-	});
 
-
-
-//验证注册框
-$(document).ready(function(){
-		$("#register_input").validate({
-			rules:{
-				register_username:{
-					required:true,
-					minlength:4,
-					maxlength:10
-				},
-				register_password1:{
-					required:true,
-					minlength:6,
-					maxlength:16
-				},
-				register_password2:{
-					required:true,
-					minlength:6,
-					maxlength:16,
-					equalTo:"#register_password1"
-				},
-			},
-			messages:{
-				register_username:{
-					required:"必须要填写用户名",
-					minlength:"用户名长度要大于4位",
-					maxlength:"用户名长度要小于10位"
-				},
-				register_password1:{
-					required:"必须要填写密码",
-					minlength:"密码长度必须大于6位",
-					maxlength:"密码长度必须小于16位"
-				},
-				register_password2:{
-					required:"必须要填写密码",
-					minlength:"密码长度必须大于6位",
-					maxlength:"密码长度必须小于16位",
-					equalTo:"两次填写密码必须一致"
-				}
-			},
-		})
-	});
-
-
+});
 
 
 //验证登录信息
