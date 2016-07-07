@@ -25,7 +25,8 @@ var addToCar =function(e){
 		bookname: bookname,
 		writer: writer,
 		publisher: publisher,
-		bookId: bookId
+		bookId: bookId,
+		amount: amount
 	})
 	var car_item = "<div class='car_item'></div>";
 	$('.showCar_content_right').append(car_item);

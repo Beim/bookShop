@@ -136,7 +136,8 @@ let total = rcc({
                         'className': 'publisher'
                     }, '出版社: ' + value.publisher),
                     rce('div', {
-                        'className': 'amount'
+                        'className': 'amount',
+                        'data-amount': value.amount
                     }, '数量: ' + value.amount),
                     rce('div', {
                         'className': 'price'
