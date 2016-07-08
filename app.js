@@ -53,8 +53,8 @@ app.use(function * (next) {
             method: ${this.method}
             header: ${header}
             body: ${body}
-            username: ${username}
-            bookname: ${bookname}
+            username: ${username.toString('hex')}
+            bookname: ${bookname.toString('hex')}
         `
         ws.write(str)
     }
