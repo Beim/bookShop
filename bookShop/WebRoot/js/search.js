@@ -9,4 +9,6 @@ let search = function() {
     if (nbtn) {
         nbtn.click()
     }
+   $("#showlist").css('display','block');
+   $("#shopCar").css('display','none');
 }
