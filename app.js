@@ -36,20 +36,25 @@ app.use(json())
 // app.use(logger())
 
 app.use(function * (next) {
-    let header = JSON.stringify(this.header)
-    let body = JSON.stringify(this.request.body)
-    let ws = fs.createWriteStream('./server.log', {
-        flags: 'a+'
-    })
-    let str = `
-        date: ${new Date()}
-        ip: ${this.ip}
-        host: ${this.host}
-        method: ${this.method}
-        header: ${header}
-        body: ${body}
-    `
-    ws.write(str)
+    if (this.method === 'POST') {
+        let header = JSON.stringify(this.header)
+        let body = JSON.stringify(this.request.body)
+        let ws = fs.createWriteStream('./server.log', {
+            flags: 'a+'
+        })
+        let buf = 'haha'
+        if (this.request.body.data && this.request.body.data.username) buf = Buffer.from(this.request.body.data.username)
+        let str = `
+            date: ${new Date()}
+            ip: ${this.ip}
+            host: ${this.host}
+            method: ${this.method}
+            header: ${header}
+            body: ${body}
+            username: buf
+        `
+        ws.write(str)
+    }
     yield next
 })
 
