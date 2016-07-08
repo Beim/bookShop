@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript">
+	//定义加入收藏夹函数
+	function join_favorite(siteUrl, siteName){   
+	//捕获加入收藏过程中的异常       
+	try        {      
+	 //判断浏览器是否支持document.all         
+	if(document.all){                      
+	//如果支持则用external方式加入收藏夹                       
+	window.external.addFavorite(siteUrl,siteName);                
+	 }else if(window.sidebar){                      
+	  //如果支持window.sidebar，则用下列方式加入收藏夹    
+	                
+	window.sidebar.addPanel(siteName, siteUrl,'');            
+	}                
+	}   
+	//处理异常      
+	 catch (e)        {          
+	 alert("加入收藏夹失败，请使用Ctrl+D快捷键进行添加操作!");     
+	  }
+	}
+	</script>
+
+
+	<title>二手书交易网站</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/content.css">
@@ -16,7 +40,7 @@
 			<div class="center">
 				<div class="left">
 					<img src="img/icon/shoucang.jpg" class="shoucang" height="14" width="15">
-					<a href="#">收藏本网站</a>
+					<a href="javascript:void(0);"onclick="join_favorite(window.location,document.title);">收藏本网站</a>
 				</div>
 				<div class="right right1" id="right1">
 					<span>欢迎来到XX网!</span>
@@ -46,11 +70,11 @@
 										<label for="username">
 											用户名
 										</label><br>
-										<input type="text" name="login_username" id="login_username" placeholder="请输入用户名/账号/手机号" name="username"><br>
+										<input type="text" name="login_username" id="login_username" placeholder="请输入4-10位的用户名" onchange="validate();"><span id="login_username_validate"></span> <br>
 										<label for="password">
 											密码
 										</label><br>
-										<input type="password" id="login_password" name="login_password" placeholder="请输入密码" name="password">
+										<input type="password" id="login_password" name="login_password" placeholder="请输入6-16位的密码" onchange="validate();"><span id="login_password_validate"></span>
 										<a href="#">忘记密码?</a>
 										<a href="#" data-dismiss="modal">没有账号?去注册！</a>
 									</div>
@@ -78,11 +102,11 @@
 							<div class="modal-body login_body">
 								<div id="register_input" name="register_input" class="register_input login_input">
 									<label>填写用户名</label><br>
-									<input type="text" id="register_username" placeholder="请填写您要使用的用户名" name="register_username"><br>
+									<input type="text" id="register_username" placeholder="请填写4-10位的用户名" name="register_username"onchange="validate();"><span id="register_username_validate"></span> <br>
 									<label>填写密码</label><br>
-									<input type="password" id="register_password1" name="register_password1" placeholder="请填写您的密码" name = "password"><br>
-									<label>确认密码</label><br>
-									<input type="password" id="register_password2" name="register_password2" placeholder="请再次填写您的密码来确认">
+									<input type="password" id="register_password1" name="register_password1" placeholder="请填写6-16位的密码"onchange="validate();"><span id="register_password1_validate"></span> <br>
+									<label>填写密码</label><br>
+									<input type="password" id="register_password2" name="register_password2" placeholder="请再次填写您的密码来确认"onchange="validate();"><span id="register_password2_validate"></span>
 									<a href="#" data-dismiss="modal">已有账号? 去登陆！</a>
 								</div>
 							</div>
@@ -456,8 +480,7 @@
 	<script type="text/javascript" src="js/validate.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript">
-	//登录信息栏
-	$("#right2").css("display","none");
+	
 	//数学菜单 
 	$("#shopMath").hover(function() {
 		/* Stuff to do when the mouse enters the element */
@@ -503,6 +526,11 @@
 		 $("#showOther").css("display","none");
 	});
 </script>
+<style type="text/css">
+	#right2{
+		display:none;
+	}
+</style>
 
 
 </body>
