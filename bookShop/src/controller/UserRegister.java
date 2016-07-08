@@ -78,13 +78,16 @@ public class UserRegister extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		//开始
 		String mail="";
 		String str = null;
-		 try {  
-			 	request.setCharacterEncoding("utf-8");  
-	            StringBuffer sb = new StringBuffer();  
-	            InputStream is = request.getInputStream();  
-	            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
+		 try { 	
+			 	request.setCharacterEncoding("UTF-8");
+	            StringBuffer sb = new StringBuffer();
+	            InputStream is = request.getInputStream();
+	            InputStreamReader isr = new InputStreamReader(is,"UTF-8");  
 	            BufferedReader br = new BufferedReader(isr);  
 	            String s = "";  
 	            while ((s = br.readLine()) != null) {  
@@ -93,46 +96,46 @@ public class UserRegister extends HttpServlet {
 	            str = sb.toString();
 	            
 	            System.out.println("接收到的字符串内容是"+str);  
-	        } catch (IOException e1) {  
+	        } catch (IOException e1) {
 	            // TODO Auto-generated catch block  
-	            e1.printStackTrace();  
+	            e1.printStackTrace();
 	        }
 		mail = str;
 		User user = new User();
 		JSONObject jsonMail = JSONObject.fromObject(mail);
-//		String username =new String(jsonMail.getString("username"));
-//		String password =new String(jsonMail.getString("password"));
-		System.out.println(System.getProperty("file.encoding"));
-		String u = jsonMail.getString("username");
-		System.out.println(Code.encode(u, "gbk", "utf-8"));
-		System.out.println(Code.encode(u, "gb2312", "utf-8"));
-		System.out.println(Code.encode(u, "iso-8859-1", "utf-8"));
-		System.out.println(new String(jsonMail.getString("username").getBytes("utf-8"),"gbk"));
-		System.out.println(new String(jsonMail.getString("username").getBytes("utf-8"),"utf-8"));
-		System.out.println(new String(jsonMail.getString("username").getBytes("gbk"),"utf-8"));
-		System.out.println(new String(jsonMail.getString("username").getBytes("gb2312"),"utf-8"));
-		System.out.println(new String(jsonMail.getString("username").getBytes("iso-8859-1"),"utf-8"));
-		String username_unicode =new String(jsonMail.getString("username").getBytes("gbk"),"unicode");
-		System.out.println(username_unicode);
-		String password_unicode =new String(jsonMail.getString("password").getBytes("gbk"),"unicode");
-		System.out.println(password_unicode);
-		String username =new String(jsonMail.getString("username").getBytes("utf-8"),"utf-8");
-		System.out.println(username);
-		String password =new String(jsonMail.getString("password").getBytes("utf-8"),"utf-8");
-		System.out.println(password);
-//		String username =new String(username_unicode.getBytes("iso-8859-1"),"utf-8");
-//		String password =new String(password_unicode.getBytes("iso-8859-1"),"utf-8"x);
-		System.out.println("注册");
-		System.out.println(username);
-		System.out.println(password);
+		String username = jsonMail.getString("username");
+		String password = jsonMail.getString("password");
+//		username = new String(username.getBytes("gbk"), "UTF-8");
+//		password = new String(password.getBytes("gbk"), "UTF-8");
+//		String password;
+//		byte[] b1 = "你好".getBytes("utf-8");
+//        byte[] b2 = new String(b1,0,b1.length,"UTF-8").getBytes("GBK");
+//        System.out.println(new String(b1,0,b1.length));
+//        System.out.println(new String(b2,0,b2.length));
+
 		
+//        byte[] b1 = username.getBytes("utf-8");
+//        byte[] b2 = new String(b1,0,b1.length,"utf-8").getBytes("gbk");
+//        username = new String(b1,0,b1.length);
+//        password = new String(b2,0,b2.length);
+        
+        
+//		byte[] byte1=username.getBytes("gbk");
+//		username=new String(byte1,"utf-8");
+//		byte[] bytesq=username.getBytes("gbk");
+//		username=new String(bytesq,"utf-8");
+////		String password =jsonMail.getString("password");
+//		request.getSession().setAttribute("username", username);
+//		request.getSession().setAttribute("password", password);
+//		request.getSession().setAttribute("loginFlag", "true");
+//		username = username + "";
+//		password = password + "";
 		user.setUserName(username);
 		user.setPassword(password);
 		
 		System.out.println(password);
-		
+		//发送
 		String jsonMessage = User.addUser(user);
-		
 		JSONObject json = JSONObject.fromObject(jsonMessage);
 		String success = json.getString("success");
 		if (success.equals("true"))
@@ -142,7 +145,7 @@ public class UserRegister extends HttpServlet {
 			request.getSession().setAttribute("loginFlag", "true");
 		}		
 		System.out.println(json);
-		response.getWriter().print(json);
+		response.getWriter().println(jsonMessage);
 	}
 
 	/**

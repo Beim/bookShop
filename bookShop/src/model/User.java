@@ -42,7 +42,7 @@ public class User {
 	}
 	public static String addUser(User user)
 	{
-		Map data = new HashMap();
+		
 
 //		try {
 //			String gbk_username=new String(user.getUserName().getBytes("ISO-8859-1"));
@@ -61,6 +61,7 @@ public class User {
 //		System.out.println(unicode);
 //		String utf8= new String(unicode.getBytes("UTF-8"));
 //		System.out.println(utf8);
+		Map data = new HashMap();
 		data.put("username", user.getUserName());
 		data.put("password", user.getPassword());
 		Map mail = new HashMap();

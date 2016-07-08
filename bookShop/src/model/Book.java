@@ -26,6 +26,28 @@ public class Book {
 		condition	="";
 		amount		=0;
 	}
+	
+	public static JSONObject searchBook(Book book){
+		Map data = new HashMap();
+		data.put("bookname", book.getBookName());
+		data.put("bookId", book.getBookId());
+		data.put("publisher", book.getPublisher());
+		data.put("writer", book.getWriter());
+		JSONObject json = JSONObject.fromObject(data);
+		String jsonMessage = HttpRequest.sendGet("http://beim.site:3333/apiv0/book",
+				json.toString());
+		book.setAmount(Integer.parseInt(JSONObject.fromObject(jsonMessage).getString("amount")));
+		
+		Map mail = new HashMap();
+		
+		mail.put("amount", book.getAmount());
+		
+		JSONObject jsonMail = JSONObject.fromObject(mail);
+		
+		return jsonMail;
+		
+	}
+	
 	public static String buyBook(Book book)
 	{
 		Map type = new HashMap();
