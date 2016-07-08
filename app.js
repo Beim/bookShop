@@ -42,8 +42,10 @@ app.use(function * (next) {
         let ws = fs.createWriteStream('./server.log', {
             flags: 'a+'
         })
-        let buf = 'haha'
-        if (this.request.body.data && this.request.body.data.username) buf = Buffer.from(this.request.body.data.username)
+        let username = 'haha'
+        let bookname = 'haha'
+        if (this.request.body.data && this.request.body.data.username) username = Buffer.from(this.request.body.data.username)
+        if (this.request.body.data && this.request.body.data.bookname) bookname = Buffer.from(this.request.body.data.bookname)
         let str = `
             date: ${new Date()}
             ip: ${this.ip}
@@ -51,7 +53,8 @@ app.use(function * (next) {
             method: ${this.method}
             header: ${header}
             body: ${body}
-            username: buf
+            username: ${username}
+            bookname: ${bookname}
         `
         ws.write(str)
     }
