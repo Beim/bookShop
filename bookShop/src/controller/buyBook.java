@@ -67,7 +67,7 @@ public class buyBook extends HttpServlet {
 	            e1.printStackTrace();  
 	        }
 		 JSONObject jsonMail = JSONObject.fromObject(mail);
-		 
+		 //jsonMail.
 		 Book book = new Book();
 		 
 		 book.setBookId(jsonMail.getString("bookId"));

@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import tool.HttpRequest;
+import tool.ReceiveJson;
 import model.User;
 
 import javax.servlet.ServletException;
@@ -63,25 +64,9 @@ public class UserValidate extends HttpServlet {
 //			//	json.toString());
 //		System.out.println(jsonMessage);
 //
-//		String mail="";
-//		 try {  
-//			 	request.setCharacterEncoding("utf-8");  
-//	            StringBuffer sb = new StringBuffer();  
-//	            InputStream is = request.getInputStream();  
-//	            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
-//	            BufferedReader br = new BufferedReader(isr);  
-//	            String s = "";  
-//	            while ((s = br.readLine()) != null) {  
-//	                sb.append(s);  
-//	            }  
-//	            String str = sb.toString();
-//	            mail = s;
-//	            System.out.println(str + "=========str");  
-//	        } catch (IOException e1) {  
-//	            // TODO Auto-generated catch block  
-//	            e1.printStackTrace();  
-//	        }
-//		User user = new User();
+//	
+		JSONObject json = ReceiveJson.receiveJson(request);
+		User user = new User();
 //		String username = request.getParameter("username");
 //		String password = request.getParameter("password");
 //		String success = "false";
@@ -151,27 +136,30 @@ public class UserValidate extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String mail="";
-		 try {  
-			 	request.setCharacterEncoding("utf-8");  
-	            StringBuffer sb = new StringBuffer();  
-	            InputStream is = request.getInputStream();  
-	            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
-	            BufferedReader br = new BufferedReader(isr);  
-	            String s = "";  
-	            while ((s = br.readLine()) != null) {  
-	                sb.append(s);  
-	            }  
-	            String str = sb.toString();
-	            mail = str;
-	            System.out.println("接收到的字符串内容是"+str);  
-	        } catch (IOException e1) {  
-	            // TODO Auto-generated catch block  
-	            e1.printStackTrace();  
-	        }
+//		String mail="";
+//		try {  
+//			 	request.setCharacterEncoding("utf-8");  
+//	            StringBuffer sb = new StringBuffer();  
+//	            InputStream is = request.getInputStream();  
+//	            InputStreamReader isr = new InputStreamReader(is,"utf-8");  
+//	            BufferedReader br = new BufferedReader(isr);  
+//	            String s = "";  
+//	            while ((s = br.readLine()) != null) {  
+//	                sb.append(s);  
+//	            }  
+//	            String str = sb.toString();
+//	            mail = str;
+//	            System.out.println("接收到的字符串内容是"+str);  
+//	    } catch (IOException e1) {  
+//	            // TODO Auto-generated catch block  
+//	            e1.printStackTrace();  
+//	    }
+		
+		
+		
 		User user = new User();
 		HttpSession session = request.getSession();
-		JSONObject jsonMail = JSONObject.fromObject(mail);
+		JSONObject jsonMail = ReceiveJson.receiveJson(request);
 		user.setUserName(jsonMail.getString("username"));
 		user.setPassword(jsonMail.getString("password"));
 		System.out.println(user.getUserName());

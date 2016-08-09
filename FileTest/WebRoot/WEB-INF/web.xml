@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <description>location for user buy book</description>
+    <display-name>buy book</display-name>
+    <servlet-name>UploadHandleServlet</servlet-name>
+    <servlet-class>file.UploadHandleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>location for user buy book</description>
+    <display-name>buy book</display-name>
+    <servlet-name>ListFileServlet</servlet-name>
+    <servlet-class>file.ListFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>location for user buy book</description>
+    <display-name>buy book</display-name>
+    <servlet-name>DownLoadServlet</servlet-name>
+    <servlet-class>file.DownLoadServlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>UploadHandleServlet</servlet-name>
+    <url-pattern>/servlet/UploadHandleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListFileServlet</servlet-name>
+    <url-pattern>/servlet/ListFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownLoadServlet</servlet-name>
+    <url-pattern>/servlet/DownLoadServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

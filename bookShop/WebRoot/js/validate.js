@@ -1,11 +1,11 @@
 //登录 注册验证url
-var login_url = 'http://192.168.10.5:8080/bookShop/userValidate';
-var register_url = 'http://192.168.10.5:8080/bookShop/userRegister';
-var judge_url = 'http://192.168.10.5:8080/bookShop/judgeLogin'
+var login_url = 'http://localhost:8080/bookShop/userValidate';
+var register_url = 'http://localhost:8080/bookShop/userRegister';
+var judge_url = 'http://localhost:8080/bookShop/judgeLogin';
 
 // //刷新验证
 // window.onload = function(){
-// 		let url = 'http://192.168.10.5:8080/bookShop/judgeLogin'
+// 		let url = 'http://localhost:8080/bookShop/judgeLogin'
 // 		let xhr = new XMLHttpRequest()
 // 		xhr.responseType = 'json'
 // 		xhr.open('post', url)
